@@ -1,6 +1,6 @@
 # InvestmentsWithFriends
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku]
 
 [Trello link][trello]
 
@@ -20,7 +20,7 @@ navigation, appropriate seed data and well designed CSS styling:
 - [ ] Posts and appropriate filtering
 - [ ] News Feed
 - [ ] Comments & Likes
-- [ ] Production README [sample](docs/production_readme.md)
+- [ ] Production README
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -29,11 +29,11 @@ navigation, appropriate seed data and well designed CSS styling:
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[wireframes]: ./wireframes
+[components]: ./component-hierarchy.md
+[sample-state]: ./sample-state.md
+[api-endpoints]: ./api-endpoints.md
+[schema]: ./schema.md
 
 ## Implementation Timeline
 
