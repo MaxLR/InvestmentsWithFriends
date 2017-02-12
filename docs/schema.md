@@ -56,7 +56,7 @@ has_many likes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users), indexed, unique [like_id, like_type]
+user_id     | integer   | not null, foreign key (references users), indexed, unique: likeable_id
 likeable_id | integer   | not null, foreign key (polymorphic reference to post or comment id), indexed
 
 belongs_to user, likeable
