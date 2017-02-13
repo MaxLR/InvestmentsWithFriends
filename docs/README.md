@@ -37,7 +37,7 @@ navigation, appropriate seed data and well designed CSS styling:
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1 day)
+### Phase 1: Backend setup and Front End User Authentication (2 day)
 
 **Objective:** Functioning rails project with front-end Authentication
 
