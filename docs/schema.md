@@ -9,10 +9,10 @@ l_name          | string    | not null, indexed
 email           | string    | not null, indexed, unique
 sex             | string    | not null
 birthday        | string    | not null
-prof_photo_url  | string    |
-cover_photo_url | string    |
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
+prof_photo_url  | string    | (from AWS paperclip)
+cover_photo_url | string    | (from AWS paperclip)
 
 has_many posts, comments, likes, friendings
 
