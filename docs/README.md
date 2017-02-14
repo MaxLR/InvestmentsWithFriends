@@ -18,6 +18,7 @@ navigation, appropriate seed data and well designed CSS styling:
 - [ ] New account creation, login, and guest/demo login
 - [ ] Profiles
 - [ ] Posts and appropriate filtering
+- [ ] Friend Requests
 - [ ] News Feed
 - [ ] Comments & Likes
 - [ ] Production README
