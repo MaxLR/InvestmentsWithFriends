@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://investments-with-friends.herokuapp.com/
 [trello]: https://trello.com/b/Tb9PgI1l/investmentswithfriends
 
 ## Minimum Viable Product
@@ -14,7 +14,7 @@ using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at
 minimum, satisfy the following criteria, implementing smooth, bug free
 navigation, appropriate seed data and well designed CSS styling:
 
-- [ ] Hosting on Heroku
+- [X] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
 - [ ] Profiles
 - [ ] Posts and appropriate filtering
