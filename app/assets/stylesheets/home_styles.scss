@@ -1,0 +1,97 @@
+.signin {
+  display: flex;
+  background-color: #3B5998;
+  justify-content: center;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bolder;
+  padding-left: 5%;
+  // width: 300px;
+}
+
+.signin-form {
+  display: flex;
+  font-size: 12px;
+  padding-right: 5%;
+  // width: 475px;
+}
+
+.signin-input {
+  width: 140px;
+  border: 1px solid black;
+}
+
+.username-group, .password-group {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+.signin-button {
+  background-color: #4267B2;
+  border: 1px solid #29487D;
+  border-radius: 1.5px;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 2px 5px;
+  color: white;
+}
+
+.signin-button:hover {
+  background-color: #3B5998;
+  cursor: pointer;
+}
+
+.signup {
+  display: flex;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #EDF0F5;
+  margin: 0 auto;
+  height: 600px;
+}
+
+.signup-input {
+  border: 1px solid #BDC7D8;
+  border-radius: 1.5px;
+}
+
+.home-details {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-desc {
+  display: flex;
+  padding-top: 40px;
+}
+
+.site-description {
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 42px;
+  padding-bottom: 24px;
+}
+
+.desc-header {
+  font-size: 16px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.user-name {
+  display: flex;
+  flex-direction: row;
+}
+
+// button color: 4267B2
+// signup button color: 5A9047

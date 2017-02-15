@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Home from './home';
 
-const App = ({ children }) => (
-  <div>
-    <h1>Welcome to Investing With Friends</h1>
-    { children }
-  </div>
-);
+const App = ({ children }) => {
+  return(
+    <div>
+      <Home />
+    </div>
+  );
+};
 
 export default App;
