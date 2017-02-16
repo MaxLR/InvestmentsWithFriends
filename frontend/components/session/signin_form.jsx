@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signin, resetErrors } from '../../actions/session_actions';
+import { signin } from '../../actions/session_actions';
 
 class SigninForm extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class SigninForm extends React.Component {
     const error = this.fetchError();
 
     return(
-      <div className="signin-form">
+      <form className="signin-form">
         <section className="username-group">
           <label>Email</label>
           <input type="text"
@@ -50,14 +50,16 @@ class SigninForm extends React.Component {
             value={this.state.password || ""}
             onChange={this.update("password")}/>
         </section>
-        <button
+        <input
+          type="submit"
+          value="Sign In"
           className="signin-button"
-          onClick={this.attemptSignin.bind(this)}>Sign In</button>
-        <button
-          className="signin-button"
-          onClick={this.signInGuest.bind(this)}>Sign In as Guest</button>
+          onClick={this.attemptSignin.bind(this)}/>
         <div className="signin-error">{error}</div>
-      </div>
+        <button
+          className="signin-button"
+          onClick={this.signInGuest.bind(this)}>Guest Sign In</button>
+      </form>
     );
   }
 }
@@ -67,8 +69,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signin: (user) => dispatch(signin(user)),
-  resetErrors: () => dispatch(resetErrors())
+  signin: (user) => dispatch(signin(user))
 });
 
 export default connect(
