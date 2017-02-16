@@ -20,7 +20,7 @@
   display: flex;
   font-size: 12px;
   padding-right: 5%;
-  // width: 475px;
+  position: relative;
 }
 
 .signin-input {
@@ -180,6 +180,15 @@
   position: relative;
   color: #B94A48;
   z-index: 1;
+}
+
+.signin-error {
+  position: absolute;
+  color: #B94A48;
+  z-index: 1;
+  bottom: -12px;
+  left: 68px;
+  background: white;
 }
 
 .abs-error {

@@ -75,8 +75,8 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const fNameErrors = this.fetchErrors('F name');
-    const lNameErrors = this.fetchErrors('L name');
+    const fNameErrors = this.fetchErrors('First Name');
+    const lNameErrors = this.fetchErrors('Last Name');
     const emailErrors = this.fetchErrors('Email');
     const passwordErrors = this.fetchErrors('Password');
     const sexErrors = this.fetchErrors('Sex');

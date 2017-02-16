@@ -15,8 +15,8 @@
 #
 
 class User < ActiveRecord::Base
-  validates :f_name, presence: { message: "First Name can't be blank" }
-  validates :l_name, presence: { message: "Last Name can't be blank" }
+  validates :f_name, presence: true
+  validates :l_name, presence: true
   validates :sex, :birthday, presence: true
   validates :password_digest, :session_token, presence: true
   validates :email, presence: true, uniqueness: true
