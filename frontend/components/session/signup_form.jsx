@@ -105,14 +105,14 @@ class SignupForm extends React.Component {
 
           <div className="user-name">
             <input type="text"
-              className="signup-input"
+              className="signup-input fname"
               value={this.state.f_name || ""}
               placeholder="First Name"
               onChange={this.update("f_name")}/>
             <div>{fNameErrors}</div>
 
             <input type="text"
-              className="signup-input"
+              className="signup-input lname"
               value={this.state.l_name || ""}
               placeholder="Last Name"
               onChange={this.update("l_name")}/>
@@ -133,22 +133,37 @@ class SignupForm extends React.Component {
             onChange={this.update("password")}/>
           <div>{passwordErrors}</div>
 
-          <label><input type="radio" value="M" checked={this.state.sex === "M"}
-            onChange={this.handleSexChange} />Male</label>
-          <label><input type="radio" value="F" checked={this.state.sex === "F"}
-            onChange={this.handleSexChange} />Female</label>
+          <section>
+            <h4 className="birthday-title">Birthday</h4>
+            <select className="birthday-selector" onChange={this.update("month")}>
+              <option key='month' value=''>Month</option>
+              {monthOptions}
+            </select>
+            <select className="birthday-selector" onChange={this.update("day")}>
+              <option key='day' value=''>Day</option>
+              {dayOptions}
+            </select>
+            <select className="birthday-selector" onChange={this.update("year")}>
+              <option key='year' value=''>Year</option>
+              {yearOptions}
+            </select>
+          </section>
 
-          <select name="month-selector" onChange={this.update("month")}>
-            {monthOptions}
-          </select>
-          <select name="day-selector" onChange={this.update("day")}>
-            {dayOptions}
-          </select>
-          <select name="year-selector" onChange={this.update("year")}>
-            {yearOptions}
-          </select>
+          <section className="sex-selector">
+          <label className="sex-option">
+            <input type="radio" value="F"
+              className="sex-button"
+              checked={this.state.sex === "F"}
+              onChange={this.handleSexChange} />Female</label>
+          <label className="sex-option">
+            <input type="radio" value="M"
+              className="sex-button"
+              checked={this.state.sex === "M"}
+              onChange={this.handleSexChange} />Male</label>
+          </section>
 
-          <button onClick={this.attemptSignup}>Sign Up</button>
+          <button className="signup-button"
+            onClick={this.attemptSignup}>Sign Up</button>
         </section>
       </div>
     );
