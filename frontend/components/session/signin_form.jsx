@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signin } from '../../actions/session_actions';
+import { signin, resetErrors } from '../../actions/session_actions';
 
 class SigninForm extends React.Component {
   constructor(props) {
@@ -22,7 +22,18 @@ class SigninForm extends React.Component {
     };
   }
 
+  fetchError() {
+    let error;
+    if (this.props.errors[0] === "Invalid username/password") {
+      error = "Invalid username/password";
+    }
+
+    return error;
+  }
+
   render() {
+    const error = this.fetchError();
+
     return(
       <div className="signin-form">
         <section className="username-group">
@@ -45,17 +56,19 @@ class SigninForm extends React.Component {
         <button
           className="signin-button"
           onClick={this.signInGuest.bind(this)}>Sign In as Guest</button>
+        <div className="signin-error">{error}</div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-
+  errors: state.session.errors
 });
 
 const mapDispatchToProps = dispatch => ({
-  signin: (user) => dispatch(signin(user))
+  signin: (user) => dispatch(signin(user)),
+  resetErrors: () => dispatch(resetErrors())
 });
 
 export default connect(

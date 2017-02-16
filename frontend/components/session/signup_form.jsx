@@ -12,14 +12,17 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { f_name: "", l_name: "", sex: "", birthday: "",
-       email: "", password: "", month: "1", day: "1", year: "2017" };
+       email: "", password: "", month: "", day: "", year: "" };
     this.handleSexChange = this.handleSexChange.bind(this);
     this.attemptSignup = this.attemptSignup.bind(this);
     this.populateUser = this.populateUser.bind(this);
   }
 
   populateUser() {
-    const date = `${this.state.month}-${this.state.day}-${this.state.year}`;
+    let date;
+    if ((this.state.month !== "") && (this.state.day !== "") && (this.state.year !== "")) {
+      date = `${this.state.month}-${this.state.day}-${this.state.year}`;
+    }
     return ({
       f_name: this.state.f_name,
       l_name: this.state.l_name,
@@ -81,6 +84,7 @@ class SignupForm extends React.Component {
     const monthOptions = this.generateMonthsFromArray(MONTHS);
     const dayOptions = this.generateOptionsFromArray(DAYS);
     const yearOptions = this.generateOptionsFromArray(YEARS).reverse();
+
     return(
       <div className="signup">
         <section className="home-details">
@@ -104,19 +108,23 @@ class SignupForm extends React.Component {
           <h3 className="signup-description">It's free and it always will be</h3>
 
           <div className="user-name">
-            <input type="text"
-              className="signup-input fname"
-              value={this.state.f_name || ""}
-              placeholder="First Name"
-              onChange={this.update("f_name")}/>
-            <div>{fNameErrors}</div>
+            <div className="signup-name">
+              <input type="text"
+                className="signup-fname"
+                value={this.state.f_name || ""}
+                placeholder="First Name"
+                onChange={this.update("f_name")}/>
+              <div className="signup-error">{fNameErrors}</div>
+            </div>
 
-            <input type="text"
-              className="signup-input lname"
-              value={this.state.l_name || ""}
-              placeholder="Last Name"
-              onChange={this.update("l_name")}/>
-            <div>{lNameErrors}</div>
+            <div className="signup-name">
+              <input type="text"
+                className="signup-lname"
+                value={this.state.l_name || ""}
+                placeholder="Last Name"
+                onChange={this.update("l_name")}/>
+              <div className="signup-error">{lNameErrors}</div>
+            </div>
           </div>
 
           <input type="text"
@@ -124,16 +132,16 @@ class SignupForm extends React.Component {
             value={this.state.email || ""}
             placeholder="Email Address"
             onChange={this.update("email")}/>
-          <div>{emailErrors}</div>
+          <div className="signup-error">{emailErrors}</div>
 
           <input type="password"
             className="signup-input"
             value={this.state.password || ""}
             placeholder="Password"
             onChange={this.update("password")}/>
-          <div>{passwordErrors}</div>
+          <div className="signup-error">{passwordErrors}</div>
 
-          <section>
+          <section className="birthday-form">
             <h4 className="birthday-title">Birthday</h4>
             <select className="birthday-selector" onChange={this.update("month")}>
               <option key='month' value=''>Month</option>
@@ -147,6 +155,7 @@ class SignupForm extends React.Component {
               <option key='year' value=''>Year</option>
               {yearOptions}
             </select>
+            <div className="signup-error abs-error">{birthdayErrors}</div>
           </section>
 
           <section className="sex-selector">
@@ -160,6 +169,7 @@ class SignupForm extends React.Component {
               className="sex-button"
               checked={this.state.sex === "M"}
               onChange={this.handleSexChange} />Male</label>
+            <div className="signup-error abs-error">{sexErrors}</div>
           </section>
 
           <button className="signup-button"

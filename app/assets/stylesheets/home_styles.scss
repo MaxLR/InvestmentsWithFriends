@@ -26,6 +26,7 @@
 .signin-input {
   width: 140px;
   height: 23px;
+  font-size: 14px;
   border: 1px solid black;
 }
 
@@ -58,11 +59,6 @@
   background-color: #EDF0F5;
   margin: 0 auto;
   height: 650px;
-}
-
-.signup-input {
-  border: 1px solid #BDC7D8;
-  border-radius: 1.5px;
 }
 
 .home-details {
@@ -101,8 +97,24 @@
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 10px;
-  width: 99.5%;
+  width: 97%;
   border-radius: 5px;
+  border: 1px solid #BDC7D8;
+}
+
+.signup-fname, .signup-lname {
+  margin: 10px 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 180px;
+  border: 1px solid #BDC7D8;
+  border-radius: 5px;
+}
+
+.signup-fname {
+  margin-right: 10px;
 }
 
 .fname {
@@ -158,6 +170,22 @@
 .signup-description {
   font-size: 20px;
   font-weight: normal;
+}
+
+.sex-selector, .birthday-form {
+  position: relative;
+}
+
+.signup-error {
+  position: relative;
+  color: #B94A48;
+  z-index: 1;
+}
+
+.abs-error {
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
 }
 // button color: 4267B2
 // signup button color: 5A9047
