@@ -24,6 +24,8 @@ body        | text      | not null
 ticker      | string    | not null, indexed
 amount      | integer   | not null
 buy_price   | integer   | not null
+open_date   | string    | not null
+close_date  | string    | not null
 return_val  | float     | not null
 status      | string    | not null, default: "open", only:["open", "closed"] indexed
 user_id     | integer   | not null, foreign key (references users), indexed
