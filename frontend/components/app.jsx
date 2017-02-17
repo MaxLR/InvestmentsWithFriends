@@ -5,7 +5,7 @@ import Home from './home';
 const App = ({ children }) => {
   return(
     <div>
-      <Home />
+      { children }
     </div>
   );
 };

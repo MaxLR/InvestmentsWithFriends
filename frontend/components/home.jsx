@@ -22,7 +22,7 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser
   };
@@ -36,3 +36,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home);
+
+//inside render, if logged_in & ownProps.location.pathname === '/' render
+//navbar & news feed otherwise; navbar & children
