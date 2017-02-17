@@ -9,7 +9,6 @@ class Home extends React.Component {
       return(
         <div>
           <p>Hello: {this.props.currentUser.f_name}!</p>
-          <button onClick={this.props.signout.bind(this)}>Sign Out</button>
         </div>
       );
     } else {

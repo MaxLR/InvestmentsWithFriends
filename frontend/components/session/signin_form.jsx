@@ -8,12 +8,14 @@ class SigninForm extends React.Component {
     this.state = { email: "", password: "" };
   }
 
-  attemptSignin() {
+  attemptSignin(e) {
+    e.preventDefault();
     this.props.signin(this.state);
   }
 
-  signInGuest() {
-    this.props.signin({ email: "jwu@gmail.com", password: "wizardhat1" });
+  signInGuest(e) {
+    e.preventDefault();
+    this.props.signin({ email: "jeff@email.com", password: "starwars" });
   }
 
   update(field) {

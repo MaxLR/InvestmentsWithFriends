@@ -1,0 +1,52 @@
+.profile-cover {
+  position: relative;
+  width: 900px;
+  top: 42px;
+  margin: 0 auto;
+}
+
+.profile-pic {
+  position: absolute;
+  top: 220px;
+  left: 25px;
+  height: 100px;
+  width: 100px;
+  z-index: 1;
+}
+
+.cover-section {
+  position: relative;
+  height: 300px;
+}
+
+.cover-pic {
+  width: 900px;
+  height: 300px;
+}
+
+.filter-bar {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  width: 900px;
+  background-color: blue;
+}
+
+.filter-open {
+  margin-left: 250px;
+}
+
+.filter-open, .filter-all {
+  padding: 10px;
+}
+
+.upload-profile {
+  position: absolute;
+}
+.upload-cover {
+  position: absolute;
+  // top: 20px;
+}
+
+
+//input type file styling
