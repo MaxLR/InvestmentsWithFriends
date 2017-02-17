@@ -12,10 +12,14 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update_attributes(user_params)
-      render :show
+    if (current_user.id == params[:id])
+      if @user.update_attributes(user_params)
+        render :show
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: ["some status code"]
     end
   end
 
@@ -23,3 +27,6 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 end
+
+
+# find status code for unauthorized user

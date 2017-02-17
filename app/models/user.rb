@@ -2,16 +2,24 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  f_name          :string           not null
-#  l_name          :string           not null
-#  email           :string           not null
-#  sex             :string           not null
-#  birthday        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                         :integer          not null, primary key
+#  f_name                     :string           not null
+#  l_name                     :string           not null
+#  email                      :string           not null
+#  sex                        :string           not null
+#  birthday                   :string           not null
+#  password_digest            :string           not null
+#  session_token              :string           not null
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
+#  profile_photo_file_name    :string
+#  profile_photo_content_type :string
+#  profile_photo_file_size    :integer
+#  profile_photo_updated_at   :datetime
+#  cover_photo_file_name      :string
+#  cover_photo_content_type   :string
+#  cover_photo_file_size      :integer
+#  cover_photo_updated_at     :datetime
 #
 
 class User < ActiveRecord::Base
@@ -21,6 +29,11 @@ class User < ActiveRecord::Base
   validates :password_digest, :session_token, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  has_attached_file :profile_photo, default_url: "default-profile-photo.jpg"
+  has_attached_file :cover_photo, default_url: "default-cover-photo.jpg"
+  validates_attachment_content_type :profile_photo, :cover_photo,
+  content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token
 
