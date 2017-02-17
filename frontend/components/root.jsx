@@ -20,4 +20,3 @@ export default Root;
 
 //home will be index route for '/' w/ conditional render for auth/news feed
 //render nav bar in app unless !logged_in
-// <Route path="/users/:id" component={ UserShow }/>

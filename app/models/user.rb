@@ -32,8 +32,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :profile_photo, default_url: "default-profile-photo.jpg"
   has_attached_file :cover_photo, default_url: "default-cover-photo.jpg"
-  validates_attachment_content_type :profile_photo, :cover_photo,
-  content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :cover_photo, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token
 

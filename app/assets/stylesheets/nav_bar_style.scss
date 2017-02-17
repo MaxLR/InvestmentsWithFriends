@@ -1,0 +1,49 @@
+.nav-bar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 41px;
+  top: 0;
+  left: 0;
+  background-color: #3B5998;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #29487D;
+}
+
+.home-link {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.home-link, .nav-profile-section > * {
+  color: white;
+}
+
+.nav-profile-section {
+  margin-right: 10px;
+}
+
+/*.nav-profile-section > * {
+  margin-left: 12px;
+  margin-right: 12px;
+}*/
+
+.signout {
+  background-color: #3B5998;
+}
+
+.signout, .profile-link {
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.profile-link {
+  text-decoration: none;
+  border-right: 1px solid #355089;
+}
+
+.signout:hover, .profile-link:hover {
+  background-color: #355089;
+  cursor: pointer;
+}
