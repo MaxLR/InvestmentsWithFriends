@@ -30,10 +30,10 @@ export const fetchUser = (userId) => {
   };
 };
 
-export const updateUser = (user) => {
+export const updateUser = (user, formData) => {
   return (dispatch) => {
-    return APIUtil.updateUser(user)
-      .then((updatedUser) => dispatch(updateUser(updatedUser)),
+    return APIUtil.updateUser(user, formData)
+      .then((updatedUser) => dispatch(receiveUser(updatedUser)),
       (errors) => dispatch(receiveErrors(errors.responseJSON)));
   };
 };

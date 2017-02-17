@@ -12,19 +12,26 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if (current_user.id == params[:id])
-      if @user.update_attributes(user_params)
+
+    if (current_user.id == params[:id].to_i)
+      if @user.update(user_params)
         render :show
       else
         render json: @user.errors.full_messages, status: 422
       end
     else
-      render json: ["some status code"]
+      render json: ["You can't update another user's page"], status: 401
     end
   end
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user)
+      .permit(:f_name, :l_name, :sex, :birthday, :email, :password,
+      :profile_photo, :cover_photo)
   end
 end
 

@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions/user_actions';
+import { fetchUser, updateUser } from '../actions/user_actions';
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       post: "", //for future implementation of posts
-      profilePhotoFile: null,
       profilePhotoUrl: null,
-      coverPhotoFile: null,
-      coverPhotoUrl: null ,
+      profilePhotoFile: null,
+      coverPhotoUrl: null
     };
   }
 
@@ -27,23 +26,34 @@ class UserShow extends React.Component {
   updateProfilePhoto(e) {
     var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
-    fileReader.onloadend = function () {
-      this.setState({imageFile: file, imageUrl: fileReader.result });
-    }.bind(this);
+    fileReader.onloadend = () => {
+      this.setState({
+        profilePhotoFile: file,
+        profilePhotoUrl: fileReader.result },
+        () => {
+          let formData = new FormData();
+          let tempFile = this.state.profilePhotoFile;
+          formData.append("user[profile_photo]", tempFile);
+          this.props.updateUser(this.props.profileOwner.id, formData);
+        });
+    };
     if (file) {
       fileReader.readAsDataURL(file);
     }
   }
 
-  updateProfilePhoto(e) {
+  updateCoverPhoto(e) {
     var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
     fileReader.onloadend = function () {
-      this.setState({profilePhotoUrl: fileReader.result });
+      this.setState({coverPhotoUrl: fileReader.result });
     }.bind(this);
     if (file) {
       fileReader.readAsDataURL(file);
     }
+
+    this.props.updateUser({id: this.props.profileOwner,
+      coverPhotoUrl: this.state.coverPhotoUrl});
   }
 
   render() {
@@ -57,12 +67,14 @@ class UserShow extends React.Component {
           <div className="cover-section">
             <img className="cover-pic"
               src={this.props.profileOwner.cover_photo_url} />
-            <input className="upload-cover" type="file" onChange={this.updateProfilePhoto} />
+            <input className="upload-cover" type="file"
+              onChange={this.updateCoverPhoto.bind(this)} />
           </div>
           <div className="prifile-pic-container">
           <img className="profile-pic"
             src={this.props.profileOwner.profile_photo_url} />
-          <input className="upload-profile" type="file" onChange={this.updateProfilePhoto} />
+          <input className="upload-profile" type="file"
+            onChange={this.updateProfilePhoto.bind(this)} />
           </div>
           <div className="filter-bar">
             <button className="filter-open">Open Trades</button>
@@ -82,7 +94,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchUser: (userId) => dispatch(fetchUser(userId))
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
+  updateUser: (userId, formData) => {
+    return dispatch(updateUser(userId, formData));
+  }
 });
 
 export default connect(
