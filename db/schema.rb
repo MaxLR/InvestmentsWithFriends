@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216195656) do
+ActiveRecord::Schema.define(version: 20170217202513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "body",       null: false
+    t.integer  "user_id",    null: false
+    t.string   "ticker"
+    t.integer  "amount"
+    t.decimal  "buy_price"
+    t.datetime "close_date"
+    t.decimal  "return_val"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["status"], name: "index_posts_on_status", using: :btree
+  add_index "posts", ["ticker"], name: "index_posts_on_ticker", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "f_name",                     null: false
