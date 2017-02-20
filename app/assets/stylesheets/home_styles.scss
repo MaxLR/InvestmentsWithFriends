@@ -13,7 +13,7 @@
   font-size: 24px;
   font-weight: bolder;
   padding-left: 5%;
-  // width: 300px;
+  background-color: #3B5998;
 }
 
 .signin-form {
@@ -30,10 +30,16 @@
   border: 1px solid black;
 }
 
+.username-group > label,
+.password-group > label {
+  background-color: #3B5998;
+}
+
 .username-group, .password-group {
   display: flex;
   flex-direction: column;
   padding-right: 10px;
+  background-color: #3B5998;
 }
 
 .signin-button {
@@ -100,6 +106,7 @@
   width: 97%;
   border-radius: 5px;
   border: 1px solid #BDC7D8;
+  background-color: white;
 }
 
 .signup-fname, .signup-lname {
@@ -111,6 +118,7 @@
   width: 180px;
   border: 1px solid #BDC7D8;
   border-radius: 5px;
+  background-color: white;
 }
 
 .signup-fname {

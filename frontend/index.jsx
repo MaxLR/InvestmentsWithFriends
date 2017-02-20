@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import { signup, signin, signout } from './actions/session_actions';
+// import { signup, signin, signout } from './actions/session_actions';
+import {isFriend, isPendingFriend} from './util/util';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -13,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(<Root store={ store }/>, root);
 });
 
-window.signup = signup;
-window.signin = signin;
-window.signout = signout;
+// window.signup = signup;
+// window.signin = signin;
+// window.signout = signout;
+
+window.isFriend = isFriend;
+window.isPendingFriend = isPendingFriend;

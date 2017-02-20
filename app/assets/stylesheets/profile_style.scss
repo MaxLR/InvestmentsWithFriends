@@ -29,24 +29,39 @@
   flex-direction: row;
   height: 40px;
   width: 900px;
-  background-color: blue;
+  background-color: #FFFFFF;
 }
 
-.filter-open {
-  margin-left: 250px;
-}
-
-.filter-open, .filter-all {
+.filter-bar > * {
   padding: 10px;
+  border-right: 1px solid #E9EAED;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  color: #4B4F56;
+}
+
+.filter-option:first-child {
+  margin-left: 150px;
+  border-left: 1px solid #E9EAED;
+}
+
+.filter-option:hover {
+  cursor: pointer;
+  background-color: #F6F7F9;
 }
 
 .upload-profile {
   position: absolute;
 }
+
 .upload-cover {
   position: absolute;
   left: 20px;
   top: 20px;
+}
+
+.profile-body {
+  height: 500px;
 }
 
 

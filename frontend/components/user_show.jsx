@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../actions/user_actions';
+import { createFriendship } from '../actions/friendship_actions';
+import { isFriend, isPendingFriend } from '../util/util';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -11,10 +13,24 @@ class UserShow extends React.Component {
       profilePhotoFile: null,
       coverPhotoUrl: null
     };
+
+    this.createFriendship = this.props.createFriendship.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.params.id);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.params.id !== newProps.params.id) {
+      this.props.fetchUser(newProps.params.id);
+    }
+  }
+
+  handleFriendRequest(friendeeId) {
+    return (e) => {
+      return this.createFriendship(friendeeId);
+    };
   }
 
   updateFile(photoName) {
@@ -56,6 +72,25 @@ class UserShow extends React.Component {
       coverPhotoUrl: this.state.coverPhotoUrl});
   }
 
+  requestButton() {
+    if (this.props.isFriend) {
+      return (
+        <div className="accepted-friend">Friends</div>
+      );
+    } else if (this.props.isPendingFriend) {
+      return (
+        <div className="pending-friend">Friend Request Sent</div>
+      );
+    } else {
+      return (
+        <button className="friend-button"
+          onClick={this.handleFriendRequest(this.props.profileOwner.id)}>
+          Add Friend
+        </button>
+      );
+    }
+  }
+
   render() {
     if (!this.props.profileOwner) {
       return (
@@ -63,22 +98,28 @@ class UserShow extends React.Component {
       );
     } else {
       return (
-        <div className="profile-cover">
-          <div className="cover-section">
-            <img className="cover-pic"
-              src={this.props.profileOwner.cover_photo_url} />
-            <input className="upload-cover" type="file"
-              onChange={this.updateCoverPhoto.bind(this)} />
+        <div>
+          <div className="profile-cover">
+            <div className="cover-section">
+              <img className="cover-pic"
+                src={this.props.profileOwner.cover_photo_url} />
+              <input className="upload-cover" type="file"
+                onChange={this.updateCoverPhoto.bind(this)} />
+            </div>
+            <div className="prifile-pic-container">
+            <img className="profile-pic"
+              src={this.props.profileOwner.profile_photo_url} />
+            <input className="upload-profile" type="file"
+              onChange={this.updateProfilePhoto.bind(this)} />
+            </div>
+            <div className="filter-bar">
+              <button className="filter-option">Timeline</button>
+            </div>
+            <div>
+              {this.requestButton()}
+            </div>
           </div>
-          <div className="prifile-pic-container">
-          <img className="profile-pic"
-            src={this.props.profileOwner.profile_photo_url} />
-          <input className="upload-profile" type="file"
-            onChange={this.updateProfilePhoto.bind(this)} />
-          </div>
-          <div className="filter-bar">
-            <button className="filter-open">Open Trades</button>
-            <button className="filter-all">All Trades</button>
+          <div className="profile-body">
           </div>
         </div>
       );
@@ -89,15 +130,16 @@ class UserShow extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     profileOwner: state.user.profileOwner,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    isFriend: isFriend(state.session.currentUser, state.user.profileOwner),
+    isPendingFriend: isPendingFriend(state.session.currentUser, state.user.profileOwner)
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: (userId) => dispatch(fetchUser(userId)),
-  updateUser: (userId, formData) => {
-    return dispatch(updateUser(userId, formData));
-  }
+  updateUser: (userId, formData) => dispatch(updateUser(userId, formData)),
+  createFriendship: (friendeeId) => dispatch(createFriendship(friendeeId))
 });
 
 export default connect(
