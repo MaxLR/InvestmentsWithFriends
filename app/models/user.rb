@@ -35,9 +35,33 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :cover_photo, content_type: /\Aimage\/.*\Z/
 
+  has_many :sent_friendships,
+    class_name: :Friendship,
+    primary_key: :id,
+    foreign_key: :friender_id
+
+  has_many :received_friendships,
+    class_name: :Friendship,
+    primary_key: :id,
+    foreign_key: :friendee_id
+
   after_initialize :ensure_session_token
 
   attr_reader :password
+
+  def all_friends
+    accepted_friends = self.sent_friendships.where(status: "accepted")
+    accepted_requests = self.received_friendships.where(status: "accepted")
+    accepted_requests + accepted_friends
+  end
+
+  def requested_friends
+    self.sent_friendships.where(status: "pending")
+  end
+
+  def requesting_friends
+    self.received_friendships.where(status: "pending")
+  end
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)

@@ -8,26 +8,54 @@
 
 User.destroy_all
 
-User.create!({f_name: "Max", l_name: "Rauchman", sex: "M",
+max = User.create!({f_name: "Max", l_name: "Rauchman", sex: "M",
   password: "asdfasdf", email: "max@email.com", birthday: "8-26-1990"})
-User.create!({f_name: "Jeff", l_name: "Wu", sex: "M",
+jeff = User.create!({f_name: "Jeff", l_name: "Wu", sex: "M",
   password: "starwars", email: "jeff@email.com", birthday: "9-29-1989"})
-User.create!({f_name: "Warren", l_name: "Buffet", sex: "M",
+warren = User.create!({f_name: "Warren", l_name: "Buffet", sex: "M",
   password: "password1", email: "w_buffet@berkshire_hathaway.com",
   birthday: "8-30-1930"})
-User.create!({f_name: "Ben", l_name: "Graham", sex: "M",
+ben = User.create!({f_name: "Ben", l_name: "Graham", sex: "M",
   password: "password1", email: "bgraham@email.com", birthday: "9-21-1976"})
-User.create!({f_name: "Peter", l_name: "Lynch", sex: "M",
+peter = User.create!({f_name: "Peter", l_name: "Lynch", sex: "M",
   password: "password1", email: "p.lynch@email.com", birthday: "1-19-1944"})
-User.create!({f_name: "Bill", l_name: "Gates", sex: "M",
+bill = User.create!({f_name: "Bill", l_name: "Gates", sex: "M",
   password: "password1", email: "bill_gates@microsoft.com", birthday: "10-28-1955"})
-User.create!({f_name: "Carl", l_name: "Icahn", sex: "M",
+carl = User.create!({f_name: "Carl", l_name: "Icahn", sex: "M",
   password: "password1", email: "c.icahn@email.com", birthday: "2-16-1936"})
-User.create!({f_name: "Richard", l_name: "Branson", sex: "M",
+richard = User.create!({f_name: "Richard", l_name: "Branson", sex: "M",
   password: "password1", email: "richard@virgin-group.com", birthday: "7-18-1950"})
-User.create!({f_name: "Mark", l_name: "Cuban", sex: "M",
+mark = User.create!({f_name: "Mark", l_name: "Cuban", sex: "M",
   password: "password1", email: "mark@markcuban.com", birthday: "7-31-1958"})
-User.create!({f_name: "Lori", l_name: "Greiner", sex: "F",
+lori = User.create!({f_name: "Lori", l_name: "Greiner", sex: "F",
   password: "password1", email: "lori@lorigreiner.com", birthday: "12-9-1969"})
-User.create!({f_name: "Barbara", l_name: "Corcoran", sex: "F",
+barb = User.create!({f_name: "Barbara", l_name: "Corcoran", sex: "F",
   password: "password1", email: "barb@barbaracorcoran.com", birthday: "3-10-1949"})
+adam = User.create!({f_name: "Adam", l_name: "Richard", sex: "M",
+  password: "password1", email: "adam.richard@gmail.com", birthday: "7-10-1984"})
+
+Friendship.destroy_all
+
+Friendship.create!({friender_id: max.id, friendee_id: jeff.id, status: "accepted"})
+Friendship.create!({friender_id: max.id, friendee_id: warren.id, status: "accepted"})
+Friendship.create!({friender_id: max.id, friendee_id: ben.id})
+Friendship.create!({friender_id: max.id, friendee_id: bill.id})
+Friendship.create!({friender_id: max.id, friendee_id: peter.id, status: "accepted"})
+Friendship.create!({friender_id: max.id, friendee_id: carl.id})
+Friendship.create!({friender_id: max.id, friendee_id: richard.id, status: "accepted"})
+Friendship.create!({friender_id: max.id, friendee_id: mark.id})
+Friendship.create!({friender_id: max.id, friendee_id: lori.id, status: "accepted"})
+Friendship.create!({friender_id: max.id, friendee_id: adam.id, status: "accepted"})
+Friendship.create!({friender_id: jeff.id, friendee_id: mark.id})
+Friendship.create!({friender_id: barb.id, friendee_id: jeff.id})
+Friendship.create!({friender_id: barb.id, friendee_id: richard.id, status: "accepted"})
+Friendship.create!({friender_id: barb.id, friendee_id: adam.id, status: "accepted"})
+Friendship.create!({friender_id: adam.id, friendee_id: mark.id, status: "accepted"})
+Friendship.create!({friender_id: adam.id, friendee_id: jeff.id, status: "accepted"})
+Friendship.create!({friender_id: adam.id, friendee_id: bill.id})
+Friendship.create!({friender_id: warrn.id, friendee_id: richard.id, status: "accepted"})
+Friendship.create!({friender_id: warren.id, friendee_id: adam.id, status: "accepted"})
+Friendship.create!({friender_id: warrn.id, friendee_id: richard.id, status: "accepted"})
+Friendship.create!({friender_id: warren.id, friendee_id: adam.id, status: "accepted"})
+Friendship.create!({friender_id: warrn.id, friendee_id: jeff.id, status: "accepted"})
+Friendship.create!({friender_id: lori.id, friendee_id: jeff.id})
