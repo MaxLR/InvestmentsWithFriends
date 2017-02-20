@@ -55,12 +55,18 @@ class User < ActiveRecord::Base
     accepted_requests + accepted_friends
   end
 
-  def requested_friends
+  def requested_friendships
     self.sent_friendships.where(status: "pending")
   end
 
-  def requesting_friends
+  def requesting_friendships
     self.received_friendships.where(status: "pending")
+  end
+
+  def pending_friends
+    self.requesting_friendships.map do |friendship|
+      friendship.friender
+    end
   end
 
   def self.generate_session_token

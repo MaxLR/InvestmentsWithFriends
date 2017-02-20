@@ -8,11 +8,38 @@ class NavBar extends React.Component {
     super(props);
     this.state = { search: "" }; //for future expansion
     this.signout = this.props.signout.bind(this);
+    this.state = { requestsHidden: true };
   }
 
   handleSignout() {
     this.signout();
     this.props.router.push('/');
+  }
+
+  toggleRequests(e) {
+    this.setState({requestsHidden: !this.state.requestsHidden});
+  }
+
+  populateRequests() {
+    if (this.props.requests) {
+      const pendingRequests = this.props.requests
+        .map((currRequest) => this.renderRequest(currRequest));
+      return (
+        <ul className="request-window" hidden={this.state.requestsHidden}>
+          {pendingRequests}
+        </ul>
+      );
+    }
+  }
+
+  renderRequest(request) {
+    return (
+      <li className="pending-request" key={request.id}>
+        <div className="requester-name">{request.f_name} {request.l_name}</div>
+        <button className="request-response accept">Confirm</button>
+        <button className="request-response deny">Delete Request</button>
+      </li>
+    );
   }
 
   render() {
@@ -24,7 +51,12 @@ class NavBar extends React.Component {
           <Link className="profile-link"
             to={`/users/${this.props.currentUser.id}`}>
             {this.props.currentUser.f_name}</Link>
-          <button className="signout" onClick={this.handleSignout.bind(this)}>Sign Out</button>
+          <div className="requests" onClick={this.toggleRequests.bind(this)}>Requests</div>
+          {this.populateRequests()}
+          <button className="signout"
+            onClick={this.handleSignout.bind(this)}>
+            Sign Out
+          </button>
         </div>
       </div>
     );
@@ -33,7 +65,8 @@ class NavBar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    requests: state.session.currentUser.pendingFriends
   };
 };
 

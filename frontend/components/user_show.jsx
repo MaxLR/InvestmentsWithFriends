@@ -75,15 +75,15 @@ class UserShow extends React.Component {
   requestButton() {
     if (this.props.isFriend) {
       return (
-        <div className="accepted-friend">Friends</div>
+        <div className="friend-button accepted-friend">Friends</div>
       );
     } else if (this.props.isPendingFriend) {
       return (
-        <div className="pending-friend">Friend Request Sent</div>
+        <div className="friend-button pending-friend">Friend Request Sent</div>
       );
     } else {
       return (
-        <button className="friend-button"
+        <button className="friend-button non-friend"
           onClick={this.handleFriendRequest(this.props.profileOwner.id)}>
           Add Friend
         </button>
@@ -115,9 +115,7 @@ class UserShow extends React.Component {
             <div className="filter-bar">
               <button className="filter-option">Timeline</button>
             </div>
-            <div>
-              {this.requestButton()}
-            </div>
+            {this.requestButton()}
           </div>
           <div className="profile-body">
           </div>
