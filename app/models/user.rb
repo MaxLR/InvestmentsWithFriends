@@ -45,14 +45,57 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :friendee_id
 
+  has_many :sent_posts,
+    class_name: :Post,
+    primary_key: :id,
+    foreign_key: :poster_id
+
+  has_many :received_posts,
+    class_name: :Post,
+    primary_key: :id,
+    foreign_key: :postee_id
+
   after_initialize :ensure_session_token
 
   attr_reader :password
 
+  def all_friendships
+    accepted_friendships = self.sent_friendships
+      .includes(friendee: [:sent_posts, :received_posts]).where(status: "accepted")
+    accepted_requests = self.received_friendships
+      .includes(friender: [:sent_posts, :received_posts]).where(status: "accepted")
+    accepted_requests + accepted_friendships
+  end
+
   def all_friends
-    accepted_friends = self.sent_friendships.where(status: "accepted")
-    accepted_requests = self.received_friendships.where(status: "accepted")
-    accepted_requests + accepted_friends
+    self.all_friendships.map do |friendship|
+      if friendship.friender_id == self.id
+        friendship.friendee
+      else
+        friendship.friender
+      end
+    end
+  end
+
+  #create an all friends method that gets all of the friends from all_friendships
+
+  #then create a friend's posts method that gets all posts made by all friends
+
+  #also create a user's posts method that gets all posts where the user whose page
+  #is being viewed is either the poster or the postee
+
+  def friend_posts
+    all_posts = []
+
+    self.all_friends.each do |friend|
+      all_posts += friend.sent_posts + friend.received_posts
+    end
+
+    return all_posts.uniq
+  end
+
+  def user_posts
+    (self.sent_posts + self.received_posts).uniq
   end
 
   def requested_friendships
@@ -60,7 +103,7 @@ class User < ActiveRecord::Base
   end
 
   def requesting_friendships
-    self.received_friendships.where(status: "pending")
+    self.received_friendships.includes(:friender).where(status: "pending")
   end
 
   def pending_friends

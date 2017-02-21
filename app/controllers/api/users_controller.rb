@@ -29,6 +29,8 @@ class Api::UsersController < ApplicationController
     @pending_friends = @user.pending_friends
   end
 
+  private
+
   def user_params
     params.require(:user)
       .permit(:f_name, :l_name, :sex, :birthday, :email, :password,

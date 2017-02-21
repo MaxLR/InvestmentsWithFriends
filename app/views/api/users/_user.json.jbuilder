@@ -7,7 +7,7 @@ json.birthday user.birthday
 json.profile_photo_url asset_path(user.profile_photo.url)
 json.cover_photo_url asset_path(user.cover_photo.url)
 
-json.friends user.all_friends, :id, :friendee_id, :friender_id, :status
+json.friends user.all_friendships, :id, :friendee_id, :friender_id, :status
 json.requestedFriendships user.requested_friendships, :id, :friendee_id, :friender_id, :status
 
 json.pendingFriends pending_friends do |friend|

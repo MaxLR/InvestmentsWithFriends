@@ -58,3 +58,16 @@ Friendship.create!({friender_id: warren.id, friendee_id: adam.id, status: "accep
 Friendship.create!({friender_id: lori.id, friendee_id: jeff.id})
 Friendship.create!({friender_id: warren.id, friendee_id: jeff.id})
 Friendship.create!({friender_id: richard.id, friendee_id: jeff.id})
+
+Post.destroy_all
+
+Post.create!({poster_id: jeff.id, postee_id: jeff.id, body: "test post"})
+Post.create!({poster_id: jeff.id, postee_id: jeff.id, body: "more test stuff"})
+Post.create!({poster_id: jeff.id, postee_id: jeff.id, body: "posting on my own page"})
+Post.create!({poster_id: jeff.id, postee_id: max.id, body: "test post on other user's page"})
+Post.create!({poster_id: jeff.id, postee_id: max.id, body: "test post again"})
+Post.create!({poster_id: jeff.id, postee_id: adam.id, body: "abcdefg"})
+Post.create!({poster_id: jeff.id, postee_id: adam.id, body: "Posty McPosterson"})
+Post.create!({poster_id: jeff.id, postee_id: warren.id, body: "Another test post"})
+Post.create!({poster_id: adam.id, postee_id: jeff.id, body: "Reply McReplyerson"})
+Post.create!({poster_id: adam.id, postee_id: jeff.id, body: "testing testing 1 2 3"})
