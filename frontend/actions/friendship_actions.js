@@ -23,8 +23,8 @@ export const resetErrors = () => ({
 export const createFriendship = (friendeeId) => {
   return (dispatch) => {
     return APIUtil.createFriendship(friendeeId)
-      .then((currentUser) => {
-        return dispatch(receiveCurrentUser(currentUser));
-      });
+      .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
+      (errors) => dispatch(receiveErrors(errors))
+      );
   };
 };

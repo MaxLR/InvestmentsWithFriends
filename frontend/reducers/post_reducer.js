@@ -1,21 +1,25 @@
 import {
-  RECEIVE_FRIENDSHIP,
+  RECEIVE_POST,
+  RECEIVE_POSTS,
   RECEIVE_ERRORS,
   RESET_ERRORS
-} from '../actions/friendship_actions';
+} from '../actions/post_actions';
 
 import { merge } from 'lodash';
 
 const defaultState = {
-  friends: [],
+  posts: [],
   errors: []
 };
 
-const FriendshipReducer = (state = defaultState, action) => {
+const PostReducer = (state = defaultState, action) => {
   const newState = merge({}, state);
   switch (action.type) {
-    case RECEIVE_FRIENDSHIP:
-      newState.friends.push(action.friendship);
+    case RECEIVE_POST:
+      newState.posts.push(action.post);
+      return newState;
+    case RECEIVE_POSTS:
+      newState.posts = Object.keys(action.posts).map(key => action.posts[key]);
       return newState;
     case RECEIVE_ERRORS:
       newState.errors = action.errors;
@@ -25,7 +29,8 @@ const FriendshipReducer = (state = defaultState, action) => {
       return newState;
     default:
       return newState;
+
   }
 };
 
-export default FriendshipReducer;
+export default PostReducer;

@@ -1,7 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
     if params["postsToFetch"] == "user"
-      debugger
       @posts = User.find(params["user_id"]).user_posts
     elsif params["postsToFetch"] == "news_feed"
       @posts = current_user.friend_posts

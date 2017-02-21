@@ -4,8 +4,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 // import { signup, signin, signout } from './actions/session_actions';
 // import {isFriend, isPendingFriend} from './util/util';
-import { fetchUserPosts, fetchNewsfeedPosts, createPost, deletePost }
-  from './util/post_api_util';
+// import { fetchUserPosts, fetchNewsfeedPosts, createPost, deletePost }
+//   from './actions/post_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 // window.isFriend = isFriend;
 // window.isPendingFriend = isPendingFriend;
-
-window.fetchUserPosts = fetchUserPosts;
-window.fetchNewsfeedPosts = fetchNewsfeedPosts;
-window.createPost = createPost;
-window.deletePost = deletePost;
+// 
+// window.fetchUserPosts = fetchUserPosts;
+// window.fetchNewsfeedPosts = fetchNewsfeedPosts;
+// window.createPost = createPost;
+// window.deletePost = deletePost;

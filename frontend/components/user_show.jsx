@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../actions/user_actions';
 import { createFriendship } from '../actions/friendship_actions';
 import { isFriend, isPendingFriend } from '../util/util';
+import NewsFeed from './news_feed';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -122,12 +123,14 @@ class UserShow extends React.Component {
             {this.requestButton()}
           </div>
           <div className="profile-body">
+            <NewsFeed feedType="user"/>
           </div>
         </div>
       );
     }
   }
 }
+
 
 const mapStateToProps = (state, ownProps) => {
   return {
