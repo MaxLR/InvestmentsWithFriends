@@ -59,3 +59,5 @@ Friendship.create!({friender_id: warrn.id, friendee_id: richard.id, status: "acc
 Friendship.create!({friender_id: warren.id, friendee_id: adam.id, status: "accepted"})
 Friendship.create!({friender_id: warrn.id, friendee_id: jeff.id, status: "accepted"})
 Friendship.create!({friender_id: lori.id, friendee_id: jeff.id})
+Friendship.create!({friender_id: warren.id, friendee_id: jeff.id})
+Friendship.create!({friender_id: richard.id, friendee_id: jeff.id})
