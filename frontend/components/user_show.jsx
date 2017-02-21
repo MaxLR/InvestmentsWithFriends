@@ -73,7 +73,11 @@ class UserShow extends React.Component {
   }
 
   requestButton() {
-    if (this.props.isFriend) {
+    if (this.props.profileOwner.id === this.props.currentUser.id){
+      return (
+        <div/>
+      );
+    } else if (this.props.isFriend) {
       return (
         <div className="friend-button accepted-friend">Friends</div>
       );
