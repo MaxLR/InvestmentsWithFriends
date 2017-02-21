@@ -11,6 +11,10 @@ class NavBar extends React.Component {
     this.state = { requestsHidden: true };
   }
 
+  componentDidMount() {
+
+  }
+
   handleSignout() {
     this.signout();
     this.props.router.push('/');
@@ -71,7 +75,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  signout: () => dispatch(signout())
+  signout: () => dispatch(signout()),
 });
 
 export default connect(

@@ -3,6 +3,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
 
     if @user
+      @pending_friends = @user.pending_friends
       log_in!(@user)
       render "api/users/show"
     else
