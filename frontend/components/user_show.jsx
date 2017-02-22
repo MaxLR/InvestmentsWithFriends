@@ -14,8 +14,6 @@ class UserShow extends React.Component {
       profilePhotoFile: null,
       coverPhotoUrl: null
     };
-
-    this.createFriendship = this.props.createFriendship.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +28,7 @@ class UserShow extends React.Component {
 
   handleFriendRequest(friendeeId) {
     return (e) => {
-      return this.createFriendship(friendeeId);
+      this.props.createFriendship(friendeeId);
     };
   }
 
@@ -123,7 +121,7 @@ class UserShow extends React.Component {
             {this.requestButton()}
           </div>
           <div className="profile-body">
-            <NewsFeed feedType="user"/>
+            <NewsFeed feedType="user" profileOwnerId={this.props.profileOwner.id}/>
           </div>
         </div>
       );

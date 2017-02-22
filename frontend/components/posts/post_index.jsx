@@ -6,6 +6,13 @@ class PostIndex extends React.Component {
   componentWillMount() {
     this.props.action(this.props.profileOwner.id);
   }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.profileOwner.id !== newProps.profileOwner.id) {
+      this.props.action(newProps.profileOwner.id);
+    }
+  }
+
   mapPostsToPostItems(posts) {
     let postItems = posts.map(post => {
       return <PostIndexItem key={post.id} post={post} />;
@@ -24,7 +31,8 @@ class PostIndex extends React.Component {
 
 const mapStateToProps = state => ({
   profileOwner: state.user.profileOwner,
-  posts: state.posts.posts
+  posts: Object.keys(state.posts.posts).map((key) => state.posts.posts[key])
+    .sort(function(a, b) {return (a.id > b.id) ? -1 : ((b.id > a.id) ? 1 : 0);} )
 });
 
 export default connect(

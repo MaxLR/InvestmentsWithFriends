@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signout } from '../actions/session_actions';
 import { Link, withRouter, Router } from 'react-router';
+import { updateFriendship, deleteFriendship } from '../actions/friendship_actions';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -9,10 +10,6 @@ class NavBar extends React.Component {
     this.state = { search: "" }; //for future expansion
     this.signout = this.props.signout.bind(this);
     this.state = { requestsHidden: true };
-  }
-
-  componentDidMount() {
-
   }
 
   handleSignout() {
@@ -36,12 +33,32 @@ class NavBar extends React.Component {
     }
   }
 
+  handleAccept(friendshipId) {
+    return (e) => {
+      e.preventDefault();
+      this.props.updateFriendship(friendshipId, "accepted");
+    };
+  }
+
+  handleReject(friendshipId) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deleteFriendship(friendshipId);
+    };
+  }
+
   renderRequest(request) {
     return (
       <li className="pending-request" key={request.id}>
         <div className="requester-name">{request.f_name} {request.l_name}</div>
-        <button className="request-response accept">Confirm</button>
-        <button className="request-response deny">Delete Request</button>
+        <button className="request-response accept"
+           onClick={this.handleAccept(request.id)}>
+           Confirm
+         </button>
+        <button className="request-response deny"
+          onClick={this.handleReject(request.id)}>
+          Delete Request
+        </button>
       </li>
     );
   }
@@ -70,12 +87,15 @@ class NavBar extends React.Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
-    requests: state.session.currentUser.pendingFriends
+    requests: state.session.currentUser.pendingRequests
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   signout: () => dispatch(signout()),
+  updateFriendship: (friendshipId, status) =>
+    dispatch(updateFriendship(friendshipId, status)),
+  deleteFriendship: (friendshipId) => dispatch(deleteFriendship(friendshipId))
 });
 
 export default connect(

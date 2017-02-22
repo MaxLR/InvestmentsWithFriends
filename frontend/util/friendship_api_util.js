@@ -22,7 +22,7 @@ export const deleteFriendship = (friendshipId) => {
   return(
     $.ajax({
       method: "DELETE",
-      url: `/friendships/${friendshipId}`
+      url: `/api/friendships/${friendshipId}`
     })
   );
 };

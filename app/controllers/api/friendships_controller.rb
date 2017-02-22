@@ -11,23 +11,22 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def update
-    @friendship.find(params[:id])
+    @friendship = Friendship.find(params[:id])
 
     if @friendship.update(friendship_params)
-      render json: {}
+      @user = current_user
+      render 'api/users/show'
     else
       render json: @friendship.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @friendship.find(params[:id])
+    friendship = Friendship.find(params[:id])
 
-    if @friendship.destroy
-      render json: {}
-    else
-      render json: @friendship.errors.full_messages, status: 422
-    end
+    friendship.destroy
+    @user = current_user
+    render 'api/users/show'
   end
 
   def friendship_params

@@ -8,7 +8,7 @@ import {
 import { merge } from 'lodash';
 
 const defaultState = {
-  posts: [],
+  posts: {},
   errors: []
 };
 
@@ -16,10 +16,10 @@ const PostReducer = (state = defaultState, action) => {
   const newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_POST:
-      newState.posts.push(action.post);
+      newState.posts[action.post.id] = action.post;
       return newState;
     case RECEIVE_POSTS:
-      newState.posts = Object.keys(action.posts).map(key => action.posts[key]);
+      newState.posts = action.posts;
       return newState;
     case RECEIVE_ERRORS:
       newState.errors = action.errors;

@@ -10,8 +10,8 @@ export const isFriend = (currentUser, profileOwner) => {
 };
 
 export const isPendingFriend = (currentUser, profileOwner) => {
-  if (currentUser.pendingFriends && profileOwner) {
-    return currentUser.pendingFriends.some((friend) => {
+  if (currentUser.pendingRequests && profileOwner) {
+    return currentUser.requestedFriendships.some((friend) => {
       return friend.friendee_id === profileOwner.id
         || friend.friender_id === profileOwner.id;
     });

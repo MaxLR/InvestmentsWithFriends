@@ -28,3 +28,19 @@ export const createFriendship = (friendeeId) => {
       );
   };
 };
+
+export const updateFriendship = (friendshipId, status) => {
+  return(dispatch) => {
+    return APIUtil.updateFriendship(friendshipId, status)
+      .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
+      (errors) => dispatch(receiveErrors(errors)));
+  };
+};
+
+export const deleteFriendship = (friendshipId) => {
+  return (dispatch) => {
+    return APIUtil.deleteFriendship(friendshipId)
+      .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
+      (errors) => dispatch(receiveErrors(errors)));
+  };
+};

@@ -79,13 +79,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  #create an all friends method that gets all of the friends from all_friendships
-
-  #then create a friend's posts method that gets all posts made by all friends
-
-  #also create a user's posts method that gets all posts where the user whose page
-  #is being viewed is either the poster or the postee
-
   def friend_posts
     all_posts = []
 
