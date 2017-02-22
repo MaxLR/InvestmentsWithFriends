@@ -55,6 +55,8 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :postee_id
 
+  belongs_to :user_only_name, -> { select(:f_name, :l_name) }, class_name: :User
+
   after_initialize :ensure_session_token
 
   attr_reader :password

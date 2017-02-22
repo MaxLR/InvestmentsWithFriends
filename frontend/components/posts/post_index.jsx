@@ -10,7 +10,6 @@ class PostIndex extends React.Component {
     let postItems = posts.map(post => {
       return <PostIndexItem key={post.id} post={post} />;
     });
-    debugger
     return postItems;
   }
 

@@ -36,7 +36,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(poster: :user_only_name, postee: :user_only_name).find(params[:id])
   end
 
   def destroy
