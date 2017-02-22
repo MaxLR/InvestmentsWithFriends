@@ -9,11 +9,11 @@ class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      post: "", //for future implementation of posts
       profilePhotoUrl: null,
       profilePhotoFile: null,
       coverPhotoUrl: null
     };
+    this.toggleHidden = this.toggleHidden.bind(this);
   }
 
   componentDidMount() {
@@ -94,6 +94,43 @@ class UserShow extends React.Component {
     }
   }
 
+  toggleHidden(field) {
+    return (e) => {
+      const hiddenVal = this.state[field] === "hidden" ? "" : "hidden";
+      this.setState({[field]: hiddenVal});
+    };
+  }
+
+  getCoverUpload() {
+    let coverUpload;
+    if (this.props.currentUser.id === this.props.profileOwner.id) {
+      coverUpload =
+        <div className="cover-pic-button">
+          <label htmlFor="cover-button"
+          className="upload-cover-pic">Upload Cover Photo</label>
+          <input className="upload-cover hidden" id="cover-button" type="file"
+            onChange={this.updateCoverPhoto.bind(this)} />
+        </div>;
+    }
+
+    return coverUpload;
+  }
+
+  getProfileUpload() {
+    let profileUpload;
+    if (this.props.currentUser.id === this.props.profileOwner.id) {
+      profileUpload =
+        <div className="profile-pic-button">
+          <label htmlFor="profile-button"
+          className="upload-profile-pic">Upload Cover Photo</label>
+        <input className="upload-profile hidden" id="profile-button" type="file"
+            onChange={this.updateProfilePhoto.bind(this)} />
+        </div>;
+    }
+
+    return profileUpload;
+  }
+
   render() {
     if (!this.props.profileOwner) {
       return (
@@ -106,14 +143,12 @@ class UserShow extends React.Component {
             <div className="cover-section">
               <img className="cover-pic"
                 src={this.props.profileOwner.cover_photo_url} />
-              <input className="upload-cover" type="file"
-                onChange={this.updateCoverPhoto.bind(this)} />
+              {this.getCoverUpload()}
             </div>
             <div className="prifile-pic-container">
-            <img className="profile-pic"
-              src={this.props.profileOwner.profile_photo_url} />
-            <input className="upload-profile" type="file"
-              onChange={this.updateProfilePhoto.bind(this)} />
+              <img className="profile-pic"
+                src={this.props.profileOwner.profile_photo_url} />
+              {this.getProfileUpload()}
             </div>
             <div className="filter-bar">
               <button className="filter-option">Timeline</button>
@@ -121,7 +156,11 @@ class UserShow extends React.Component {
             {this.requestButton()}
           </div>
           <div className="profile-body">
-            <NewsFeed feedType="user" profileOwnerId={this.props.profileOwner.id}/>
+            <div className="news-feed user-feed">
+              <NewsFeed
+                feedType="user"
+                profileOwnerId={this.props.profileOwner.id}/>
+            </div>
           </div>
         </div>
       );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link, withRouter, Router } from 'react-router';
 
 class PostIndexItem extends React.Component {
   render() {
@@ -7,17 +8,28 @@ class PostIndexItem extends React.Component {
     if (this.props.post.poster_id !== this.props.post.postee_id) {
       recipient = (
         <div>
-          {this.props.post.postee_f_name} {this.props.post.postee_l_name}
+          <i className="fa fa-arrow-right" aria-hidden="true"></i>
+           <Link
+             to={`/users/${this.props.post.postee_id}`}
+             className="user-link">
+             {this.props.post.postee_f_name} {this.props.post.postee_l_name}
+           </Link>
         </div>
       );
     }
     return(
-      <li>
-        <div>
-          {this.props.post.poster_f_name} {this.props.post.poster_l_name}
-        </div>
-        <div>{recipient}</div>
-        <div>{this.props.post.body}</div>
+      <li className="post-item">
+          <div className="post-user-details">
+            <img className="post-profile-photo"
+              src={this.props.post.poster_profile_photo_url} />
+            <Link
+              to={`/users/${this.props.post.poster_id}`}
+              className="user-link">
+              {this.props.post.poster_f_name} {this.props.post.poster_l_name}
+            </Link>
+            <div>{recipient}</div>
+          </div>
+        <div className="post-body">{this.props.post.body}</div>
       </li>
     );
   }

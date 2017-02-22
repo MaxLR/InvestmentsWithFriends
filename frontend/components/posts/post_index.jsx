@@ -4,12 +4,18 @@ import PostIndexItem from './post_index_item';
 
 class PostIndex extends React.Component {
   componentWillMount() {
-    this.props.action(this.props.profileOwner.id);
+    let ownerId;
+    if (this.props.profileOwner) {
+      ownerId = this.props.profileOwner.id;
+    }
+    this.props.action(ownerId);
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.profileOwner.id !== newProps.profileOwner.id) {
-      this.props.action(newProps.profileOwner.id);
+    if (this.props.profileOwner && newProps.profileOwner) {
+      if (this.props.profileOwner.id !== newProps.profileOwner.id) {
+        this.props.action(newProps.profileOwner.id);
+      }
     }
   }
 
@@ -22,7 +28,7 @@ class PostIndex extends React.Component {
 
   render() {
     return (
-      <ul>
+      <ul className="post-index">
         {this.mapPostsToPostItems(this.props.posts)}
       </ul>
     );

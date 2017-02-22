@@ -2,13 +2,14 @@ import React from 'react';
 import SessionForm from './session/session_form';
 import { connect } from 'react-redux';
 import { signout } from '../actions/session_actions';
+import NewsFeed from './news_feed';
 
 class Home extends React.Component {
   render() {
     if (this.props.currentUser) {
       return(
-        <div>
-          <p>Hello: {this.props.currentUser.f_name}!</p>
+        <div className="news-feed home-feed">
+          <NewsFeed />
         </div>
       );
     } else {

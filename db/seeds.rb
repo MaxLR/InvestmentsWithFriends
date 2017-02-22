@@ -68,6 +68,5 @@ Post.create!({poster_id: jeff.id, postee_id: max.id, body: "test post on other u
 Post.create!({poster_id: jeff.id, postee_id: max.id, body: "test post again"})
 Post.create!({poster_id: jeff.id, postee_id: adam.id, body: "abcdefg"})
 Post.create!({poster_id: jeff.id, postee_id: adam.id, body: "Posty McPosterson"})
-Post.create!({poster_id: jeff.id, postee_id: warren.id, body: "Another test post"})
 Post.create!({poster_id: adam.id, postee_id: jeff.id, body: "Reply McReplyerson"})
 Post.create!({poster_id: adam.id, postee_id: jeff.id, body: "testing testing 1 2 3"})

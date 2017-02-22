@@ -5,6 +5,10 @@
   margin: 0 auto;
 }
 
+.profile-pic-container {
+  position: relative;
+}
+
 .profile-pic {
   position: absolute;
   top: 220px;
@@ -54,10 +58,46 @@
   position: absolute;
 }
 
-.upload-cover {
+.cover-pic-button {
   position: absolute;
   left: 20px;
   top: 20px;
+}
+
+.profile-pic-button {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  left: 25px;
+  bottom: 20px;
+  font-size: 11px;
+  opacity: 0;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 3px 4px;
+}
+
+.profile-pic-button:hover {
+  cursor: pointer;
+  opacity: .3;
+}
+
+.upload-profile-pic:hover {
+  cursor: pointer;
+}
+
+.upload-cover-pic {
+  border: 1px solid white;
+  background-color: black;
+  opacity: .2;
+  color: white;
+  padding: 2px 10px;
+}
+
+.upload-cover-pic:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .profile-body {
@@ -90,4 +130,8 @@
 
 .accepted-friend {
   left: 831px;
+}
+
+.hidden {
+  display: none;
 }

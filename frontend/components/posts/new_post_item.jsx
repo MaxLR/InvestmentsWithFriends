@@ -26,14 +26,20 @@ class NewPostItem extends React.Component {
 
   render() {
     return (
-      <form >
-        <input type="text"
-          value={this.state.body}
-          className="new-post-body"
-          onChange={this.updateBody.bind(this)}/>
-        <input type="submit"
-          onClick={this.handleSubmit.bind(this)}
-          value="Post" />
+      <form className="new-post">
+        <img className="post-profile-photo"
+          src={this.props.currentUser.profile_photo_url} />
+        <div className="new-post-form">
+          <textarea
+            value={this.state.body}
+            className="new-post-body"
+            placeholder="What's on your mind?"
+            onChange={this.updateBody.bind(this)}/>
+          <input type="submit"
+            className="new-post-button"
+            onClick={this.handleSubmit.bind(this)}
+            value="Post" />
+        </div>
       </form>
     );
   }
