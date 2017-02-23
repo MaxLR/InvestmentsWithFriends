@@ -1,6 +1,7 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @comments =  Comment.where("commentable_id = ? AND commentable_type = ?",
+      Integer(params["commentable_id"]), params["commentable_type"])
     render :index
   end
 

@@ -6,6 +6,8 @@ import configureStore from './store/store';
 // import {isFriend, isPendingFriend} from './util/util';
 // import { fetchUserPosts, fetchNewsfeedPosts, createPost, deletePost }
 //   from './actions/post_actions';
+import { fetchCommentableComments, createComment, deleteComment }
+  from './util/comment_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -22,8 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 // window.isFriend = isFriend;
 // window.isPendingFriend = isPendingFriend;
-// 
+//
 // window.fetchUserPosts = fetchUserPosts;
 // window.fetchNewsfeedPosts = fetchNewsfeedPosts;
 // window.createPost = createPost;
 // window.deletePost = deletePost;
+
+window.fetchCommentableComments = fetchCommentableComments;
+window.createComment = createComment;
+window.deleteComment = deleteComment;
