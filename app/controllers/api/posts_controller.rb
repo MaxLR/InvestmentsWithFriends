@@ -43,11 +43,8 @@ class Api::PostsController < ApplicationController
     post = Post.find(params[:id])
 
     if (current_user.id == post.poster_id)
-      if post.destroy
-        render json: post
-      else
-        render json: post.errors.full_messages
-      end
+      post.destroy
+      render json: post
     else
       render json: ["You can't delete another user's post"], status: 401
     end

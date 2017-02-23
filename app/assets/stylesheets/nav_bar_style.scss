@@ -56,7 +56,7 @@
   background-color: white;
   border-left: 1px solid #C1C1C1;
   border-right: 1px solid #C1C1C1;
-  width: 400px;
+  width: 350px;
   color: black;
   list-style: none;
 }
@@ -80,6 +80,10 @@
   border-radius: 3px;
 }
 
+.request-response:hover {
+  cursor: pointer;
+}
+
 .accept {
   width: 73px;
   background-color: #4267B2;
@@ -87,12 +91,28 @@
   color: white;
 }
 
+.accept:hover {
+  background-color: #365899;
+}
+
 .deny {
   width: 118px;
   background-color: #F6F7F9;
   border: 1px solid #CED0D4;
+  color: #4B4F56;
+}
+
+.deny:hover {
+  background-color: #E9EBEE;
 }
 
 .requester-name {
-  width: 185px;
+  text-decoration: none;
+  width: 100px;
+}
+
+.request-profile-photo {
+  padding: 5px;
+  width: 45px;
+  height: auto;
 }

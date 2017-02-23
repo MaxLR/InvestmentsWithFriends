@@ -50,7 +50,14 @@ class NavBar extends React.Component {
   renderRequest(request) {
     return (
       <li className="pending-request" key={request.id}>
-        <div className="requester-name">{request.f_name} {request.l_name}</div>
+        <Link to={`/users/${request.friender_id}`}>
+          <img className="request-profile-photo"
+          src={request.profilePhotoUrl} />
+        </Link>
+        <Link className="requester-name"
+          to={`/users/${request.friender_id}`}>
+          {request.f_name} {request.l_name}
+        </Link>
         <button className="request-response accept"
            onClick={this.handleAccept(request.id)}>
            Confirm
@@ -72,7 +79,8 @@ class NavBar extends React.Component {
           <Link className="profile-link"
             to={`/users/${this.props.currentUser.id}`}>
             {this.props.currentUser.f_name}</Link>
-          <div className="requests" onClick={this.toggleRequests.bind(this)}>Requests</div>
+          <div className="requests"
+            onClick={this.toggleRequests.bind(this)}>Requests</div>
           {this.populateRequests()}
           <button className="signout"
             onClick={this.handleSignout.bind(this)}>

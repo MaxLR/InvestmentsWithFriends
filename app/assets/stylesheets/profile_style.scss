@@ -6,13 +6,13 @@
 }
 
 .profile-pic-container {
-  position: relative;
-}
-
-.profile-pic {
   position: absolute;
   top: 220px;
   left: 25px;
+  z-index: 1;
+}
+
+.profile-pic {
   height: 100px;
   width: 100px;
   z-index: 1;
@@ -68,19 +68,22 @@
   display: flex;
   position: absolute;
   z-index: 10;
-  left: 25px;
-  bottom: 20px;
+  bottom: 4px;
   font-size: 11px;
   opacity: 0;
   background-color: black;
   color: white;
   border: 1px solid white;
-  padding: 3px 4px;
+  padding: 8px 2px;
+  width: 94px;
 }
 
 .profile-pic-button:hover {
   cursor: pointer;
-  opacity: .3;
+}
+
+.profile-pic-container:hover > div {
+  opacity: .7;
 }
 
 .upload-profile-pic:hover {

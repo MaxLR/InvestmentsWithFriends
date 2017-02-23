@@ -122,7 +122,7 @@ class UserShow extends React.Component {
       profileUpload =
         <div className="profile-pic-button">
           <label htmlFor="profile-button"
-          className="upload-profile-pic">Upload Cover Photo</label>
+          className="upload-profile-pic">Upload Profile Photo</label>
         <input className="upload-profile hidden" id="profile-button" type="file"
             onChange={this.updateProfilePhoto.bind(this)} />
         </div>;
@@ -145,7 +145,7 @@ class UserShow extends React.Component {
                 src={this.props.profileOwner.cover_photo_url} />
               {this.getCoverUpload()}
             </div>
-            <div className="prifile-pic-container">
+            <div className="profile-pic-container">
               <img className="profile-pic"
                 src={this.props.profileOwner.profile_photo_url} />
               {this.getProfileUpload()}

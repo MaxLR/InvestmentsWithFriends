@@ -21,4 +21,5 @@ json.pendingRequests user.requesting_friendships do |friendship|
   json.friender_id friendship.friender.id
   json.f_name friendship.friender.f_name
   json.l_name friendship.friender.l_name
+  json.profilePhotoUrl asset_path(friendship.friender.profile_photo.url)
 end

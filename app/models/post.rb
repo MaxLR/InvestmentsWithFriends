@@ -10,4 +10,7 @@ class Post < ActiveRecord::Base
     class_name: :User,
     primary_key: :id,
     foreign_key: :postee_id
+
+  has_many :comments,
+    as: :commentable
 end
