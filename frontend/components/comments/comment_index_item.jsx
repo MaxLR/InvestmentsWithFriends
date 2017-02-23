@@ -5,18 +5,18 @@ import { Link, withRouter, Router } from 'react-router';
 class CommentIndexItem extends React.Component {
   render() {
     return (
-      <div>
-      <div className="commenter-info">
+      <div className="comment-index-item">
         <Link to={`/users/${this.props.comment.userId}`} >
           <img className="comment-profile-photo"
             src={this.props.comment.userProfilePhoto} />
         </Link>
-        <Link className="commenter-name"
-          to={`/users/${this.props.comment.userId}`}>
-          {this.props.comment.userFName} {this.props.comment.userLName}
-        </Link>
-      </div>
-      <div>{this.props.comment.body}</div>
+        <div className="comment-body">
+          <Link className="commenter-name"
+            to={`/users/${this.props.comment.userId}`}>
+            {this.props.comment.userFName} {this.props.comment.userLName}
+          </Link>
+          <div className="comment-message">{this.props.comment.body}</div>
+        </div>
       </div>
     );
   }

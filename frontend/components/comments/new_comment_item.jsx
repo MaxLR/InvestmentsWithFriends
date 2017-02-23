@@ -30,7 +30,7 @@ class NewCommentItem extends React.Component {
   render() {
     return(
       <form className="new-comment" onSubmit={this.handleSubmit.bind(this)}>
-        <img className="comment-profile-photo"
+        <img className="new-comment-profile-photo"
           src={this.props.currentUser.profile_photo_url} />
         <div className="new-comment-form">
           <input type="text"

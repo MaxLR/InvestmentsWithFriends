@@ -1,0 +1,50 @@
+.comment-index-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-index-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-profile-photo {
+  width: 50px;
+  height: auto;
+  padding: 10px;
+}
+
+.comment-body {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.commenter-name {
+  padding-right: 5px;
+  text-decoration: none;
+}
+
+.new-comment {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.new-comment-profile-photo {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.new-comment-form {
+  align-self: center;
+}
+
+.new-comment-body {
+  border: 1px solid #DDDFE2;
+  height: 35px;
+  width: 530px;
+}
