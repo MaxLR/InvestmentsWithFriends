@@ -15,12 +15,16 @@
 }
 
 .comment-body {
-  display: flex;
   flex-direction: row;
   align-self: center;
+  margin-right: 10px;
 }
 
 .commenter-name {
+  display: inline;
+  white-space: nowrap;
+  float: left;
+  height: 17px;
   padding-right: 5px;
   text-decoration: none;
 }

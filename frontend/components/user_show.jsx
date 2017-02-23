@@ -63,15 +63,20 @@ class UserShow extends React.Component {
   updateCoverPhoto(e) {
     var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
-    fileReader.onloadend = function () {
-      this.setState({coverPhotoUrl: fileReader.result });
-    }.bind(this);
+    fileReader.onloadend = () => {
+      this.setState({
+        coverPhotoFile: file,
+        coverPhotoUrl: fileReader.result },
+      () => {
+        let formData = new FormData();
+        let tempFile = this.state.coverPhotoFile;
+        formData.append("user[cover_photo]", tempFile);
+        this.props.updateUser(this.props.profileOwner.id, formData);
+      });
+    };
     if (file) {
       fileReader.readAsDataURL(file);
     }
-
-    this.props.updateUser({id: this.props.profileOwner,
-      coverPhotoUrl: this.state.coverPhotoUrl});
   }
 
   requestButton() {
