@@ -1,9 +1,8 @@
-export const fetchCommentableComments = (commentableId, commentableType) => {
+export const fetchComments = () => {
   return (
     $.ajax({
       method: "GET",
       url: `api/comments`,
-      data: { commentable_id: commentableId, commentable_type: commentableType }
     })
   );
 };

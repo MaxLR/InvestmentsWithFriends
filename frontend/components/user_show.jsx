@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../actions/user_actions';
 import { createFriendship } from '../actions/friendship_actions';
 import { isFriend, isPendingFriend } from '../util/util';
+import { fetchUserPosts } from '../actions/post_actions';
 import NewsFeed from './news_feed';
+
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -49,7 +51,8 @@ class UserShow extends React.Component {
           let formData = new FormData();
           let tempFile = this.state.profilePhotoFile;
           formData.append("user[profile_photo]", tempFile);
-          this.props.updateUser(this.props.profileOwner.id, formData);
+          this.props.updateUser(this.props.profileOwner.id, formData)
+            .then(() => this.props.fetchUserPosts(this.props.profileOwner.id));
         });
     };
     if (file) {
@@ -181,7 +184,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchUser: (userId) => dispatch(fetchUser(userId)),
   updateUser: (userId, formData) => dispatch(updateUser(userId, formData)),
-  createFriendship: (friendeeId) => dispatch(createFriendship(friendeeId))
+  createFriendship: (friendeeId) => dispatch(createFriendship(friendeeId)),
+  fetchUserPosts: (userId) => dispatch(fetchUserPosts(userId))
 });
 
 export default connect(

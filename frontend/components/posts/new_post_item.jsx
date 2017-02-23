@@ -8,6 +8,10 @@ class NewPostItem extends React.Component {
     this.state = { body: "" };
   }
 
+  componentDidReceiveProps() {
+    this.render();
+  }
+
   updateBody(e) {
     this.setState({ body: e.currentTarget.value });
   }
@@ -21,10 +25,14 @@ class NewPostItem extends React.Component {
         body: this.state.body
       }
     };
-    this.props.createPost(post);
+    this.props.createPost(post).then(this.setState({ body: "" }));
   }
 
   render() {
+    const placeholder =
+    (this.props.currentUser.id === this.props.recipientId) ?
+    "What's on your mind?" : "Write something...";
+
     return (
       <form className="new-post">
         <img className="post-profile-photo"
@@ -33,7 +41,7 @@ class NewPostItem extends React.Component {
           <textarea
             value={this.state.body}
             className="new-post-body"
-            placeholder="What's on your mind?"
+            placeholder={placeholder}
             onChange={this.updateBody.bind(this)}/>
           <input type="submit"
             className="new-post-button"

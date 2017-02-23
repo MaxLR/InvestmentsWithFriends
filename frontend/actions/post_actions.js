@@ -4,6 +4,7 @@ export const RECEIVE_POST = "RECEIVE_POST";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RESET_ERRORS = "RESET_ERRORS";
+export const ADD_COMMENT = "ADD_COMMENT";
 
 export const receivePost = (post) => ({
   type: RECEIVE_POST,
@@ -22,6 +23,12 @@ export const receiveErrors = (errors) => ({
 
 export const resetErrors = () => ({
   type: RESET_ERRORS
+});
+
+export const addComment = ({ comment }) => ({
+ type: ADD_COMMENT,
+  commentId: comment.id,
+  postId: comment.commentableId
 });
 
 export const createPost = (post) => {
