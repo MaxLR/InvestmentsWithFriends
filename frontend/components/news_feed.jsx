@@ -7,7 +7,7 @@ import { isEqual } from 'lodash';
 
 class NewsFeed extends React.Component {
   componentWillReceiveProps(newProps) {
-    if (isEqual(newProps.friends, this.props.friends)) {
+    if (!isEqual(newProps.friends, this.props.friends)) {
       this.props.action(this.props.recipientId);
     }
   }

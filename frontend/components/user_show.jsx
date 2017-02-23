@@ -177,7 +177,8 @@ const mapStateToProps = (state, ownProps) => {
     profileOwner: state.user.profileOwner,
     currentUser: state.session.currentUser,
     isFriend: isFriend(state.session.currentUser, state.user.profileOwner),
-    isPendingFriend: isPendingFriend(state.session.currentUser, state.user.profileOwner)
+    isPendingFriend: isPendingFriend(state.session.currentUser,
+      state.user.profileOwner)
   };
 };
 
