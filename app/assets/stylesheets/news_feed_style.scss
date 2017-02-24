@@ -67,6 +67,7 @@
 }
 
 .post-item {
+  position: relative;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -80,6 +81,7 @@
 }
 
 .post-user-details {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -103,4 +105,51 @@
   color: #AAAAAA;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.post-options {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.post-options-button {
+  font-size: 12px;
+  color: #BFC3CA;
+}
+
+.options-list {
+  position: absolute;
+  top: 18px;
+  right: 0px;
+  width: 160px;
+  border: 1px solid black;
+  white-space: nowrap;
+}
+
+.post-option {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  font-size: 12px;
+}
+
+.post-option:hover {
+  cursor: pointer;
+  background-color: #4267B2;
+  color: white;
+  border-top: 1px solid #29487D;
+  border-bottom: 1px solid #29487D;
+  font-weight: lighter;
+}
+
+.post-option:first-child {
+  margin-top: 3px;
+}
+
+.post-option:last-child {
+  margin-bottom: 3px;
 }

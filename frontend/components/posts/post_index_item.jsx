@@ -28,15 +28,20 @@ class PostIndexItem extends React.Component {
 
   populateOptions() {
     let postOptions;
-    if (this.props.post.poster_id === this.props.currentUser.id) {
+    if (this.props.post.poster_id === this.props.currentUser.id
+      || this.props.post.postee_id === this.props.currentUser.id) {
       postOptions = (
         <div className="post-options">
           <div className="post-options-button"
             onClick={this.toggleOptions.bind(this)}>v</div>
-          <div className="options-list"
+          <ul className="options-list"
             hidden={this.state.optionsHidden}>
-            <div onClick={this.handleDelete(this.props.post.id)}>Delete Post</div>
-          </div>
+            <li
+              className="post-option"
+              onClick={this.handleDelete(this.props.post.id)}>
+              Delete Post
+            </li>
+          </ul>
         </div>
       );
     }
@@ -71,8 +76,8 @@ class PostIndexItem extends React.Component {
               {this.props.post.poster_f_name} {this.props.post.poster_l_name}
             </Link>
             <div>{recipient}</div>
-            {this.populateOptions()}
           </div>
+          {this.populateOptions()}
         <div className="post-body">{this.props.post.body}</div>
         <CommentIndex
           commentIds={this.props.post.commentIds}
