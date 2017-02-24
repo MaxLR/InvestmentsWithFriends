@@ -12,14 +12,24 @@
   z-index: 1000;
 }
 
-.home-link {
-  margin-left: 10px;
-  text-decoration: none;
-}
-
 .home-link, .nav-profile-section > * {
   color: white;
 }
+
+.home-link {
+  height: 20px;
+  padding-top: 3px;
+  padding-left: 1px;
+  padding-right: 1px;
+  margin-left: 5px;
+  text-decoration: none;
+  color: #3B5998;
+  background-color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  border-radius: 2px;
+}
+
 
 .nav-profile-section {
   margin-right: 10px;
