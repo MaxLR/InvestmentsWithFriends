@@ -6,6 +6,7 @@
 .comment-index-item {
   display: flex;
   flex-direction: row;
+  font-family: sans-serif;
 }
 
 .comment-profile-photo {
@@ -28,6 +29,7 @@
   height: 17px;
   padding-right: 5px;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .new-comment {

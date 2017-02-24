@@ -80,7 +80,9 @@ class NavBar extends React.Component {
             to={`/users/${this.props.currentUser.id}`}>
             {this.props.currentUser.f_name}</Link>
           <div className="requests"
-            onClick={this.toggleRequests.bind(this)}>Requests</div>
+            onClick={this.toggleRequests.bind(this)}>
+            <i className="fa fa-users" aria-hidden="true"></i>
+          </div>
           {this.populateRequests()}
           <button className="signout"
             onClick={this.handleSignout.bind(this)}>
