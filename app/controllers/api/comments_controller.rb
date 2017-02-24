@@ -19,7 +19,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Post.find(params[:id])
+    comment = Comment.find(params[:id])
 
     if (current_user.id == comment.user_id)
       comment.destroy

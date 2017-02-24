@@ -2,7 +2,8 @@ import {
   RECEIVE_COMMENT,
   RECEIVE_COMMENTS,
   RECEIVE_ERRORS,
-  RESET_ERRORS
+  RESET_ERRORS,
+  REMOVE_COMMENT
 } from '../actions/comment_actions';
 import { merge } from 'lodash';
 
@@ -17,6 +18,9 @@ const CommentReducer = (state = defaultState, action) => {
       return newState;
     case RECEIVE_COMMENTS:
       newState = action.comments;
+      return newState;
+    case REMOVE_COMMENT:
+      delete newState[action.commentId];
       return newState;
     case RECEIVE_ERRORS:
       newState.errors = action.errors;

@@ -1,8 +1,47 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter, Router } from 'react-router';
+import { deleteComment } from '../../actions/comment_actions';
 
 class CommentIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { optionsHidden: true };
+  }
+
+  toggleOptions(e) {
+    this.setState({ optionsHidden: !this.state.optionsHidden });
+  }
+
+  handleDelete(commentId) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deleteComment(commentId);
+    };
+  }
+
+  populateOptions() {
+    let commentOptions;
+    if (this.props.comment.userId === this.props.currentUser.id) {
+      commentOptions = (
+        <div className="comment-options">
+          <div className="comment-options-button"
+            onClick={this.toggleOptions.bind(this)}>v</div>
+          <ul className="options-list"
+            hidden={this.state.optionsHidden}>
+            <li
+              className="comment-option"
+              onClick={this.handleDelete(this.props.comment.id)}>
+              Delete Comment
+            </li>
+          </ul>
+        </div>
+      );
+    }
+
+    return commentOptions;
+  }
+
   render() {
     return (
       <div className="comment-index-item">
@@ -17,16 +56,20 @@ class CommentIndexItem extends React.Component {
           </Link>
           <div className="comment-message">{this.props.comment.body}</div>
         </div>
+        {this.populateOptions()}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-
-};
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.currentUser
+});
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  deleteComment: (commentId) => dispatch(deleteComment(commentId))
+});
 
 export default connect(
-  null,
-  null
+  mapStateToProps,
+  mapDispatchToProps
 )(CommentIndexItem);
