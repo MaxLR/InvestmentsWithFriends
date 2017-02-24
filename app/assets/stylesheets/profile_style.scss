@@ -54,7 +54,7 @@
   background-color: #F6F7F9;
 }
 
-.upload-profile {
+.ofile {
   position: absolute;
 }
 
@@ -84,6 +84,11 @@
 
 .profile-pic-container:hover > div {
   opacity: .7;
+}
+
+.upload-profile-pic {
+  white-space: nowrap;
+  font-size: 10px;
 }
 
 .upload-profile-pic:hover {
@@ -116,6 +121,7 @@
   color: #4B4F56;
   font-size: 12px;
   bottom: 80px;
+  white-space: nowrap;
 }
 
 .accepted-friend {
