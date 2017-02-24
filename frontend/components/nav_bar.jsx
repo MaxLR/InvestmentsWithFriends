@@ -7,7 +7,6 @@ import { updateFriendship, deleteFriendship } from '../actions/friendship_action
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: "" }; //for future expansion
     this.signout = this.props.signout.bind(this);
     this.state = { requestsHidden: true };
   }
@@ -18,7 +17,7 @@ class NavBar extends React.Component {
   }
 
   toggleRequests(e) {
-    this.setState({requestsHidden: !this.state.requestsHidden});
+    this.setState({ requestsHidden: !this.state.requestsHidden });
   }
 
   populateRequests() {

@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/post_api_util';
 
 export const RECEIVE_POST = "RECEIVE_POST";
+export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RESET_ERRORS = "RESET_ERRORS";
@@ -31,6 +32,11 @@ export const addComment = ({ comment }) => ({
   postId: comment.commentableId
 });
 
+export const removePost = (post) => ({
+  type: REMOVE_POST,
+  postId: post.id
+});
+
 export const createPost = (post) => {
   return (dispatch) => {
     return APIUtil.createPost(post)
@@ -58,7 +64,7 @@ export const fetchNewsfeedPosts = () => {
 export const deletePost = (postId) => {
   return (dispatch) => {
     return APIUtil.deletePost(postId)
-      .then((post) => dispatch(receivePost(post)),
+      .then((post) => dispatch(removePost(post)),
       (errors) => dispatch(receiveErrors(errors)));
   };
 };

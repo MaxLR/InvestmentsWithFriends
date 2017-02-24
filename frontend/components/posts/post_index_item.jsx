@@ -3,10 +3,45 @@ import { connect } from 'react-redux';
 import { Link, withRouter, Router } from 'react-router';
 import CommentIndex from '../comments/comment_index';
 import { fetchComments } from '../../actions/comment_actions';
+import { deletePost } from '../../actions/post_actions';
 
 class PostIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { optionsHidden: true };
+  }
+
+  toggleOptions(e) {
+    this.setState({ optionsHidden: !this.state.optionsHidden });
+  }
+
   componentDidMount() {
     this.props.fetchComments();
+  }
+
+  handleDelete(postId) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deletePost(postId);
+    };
+  }
+
+  populateOptions() {
+    let postOptions;
+    if (this.props.post.poster_id === this.props.currentUser.id) {
+      postOptions = (
+        <div className="post-options">
+          <div className="post-options-button"
+            onClick={this.toggleOptions.bind(this)}>v</div>
+          <div className="options-list"
+            hidden={this.state.optionsHidden}>
+            <div onClick={this.handleDelete(this.props.post.id)}>Delete Post</div>
+          </div>
+        </div>
+      );
+    }
+
+    return postOptions;
   }
 
   render() {
@@ -36,6 +71,7 @@ class PostIndexItem extends React.Component {
               {this.props.post.poster_f_name} {this.props.post.poster_l_name}
             </Link>
             <div>{recipient}</div>
+            {this.populateOptions()}
           </div>
         <div className="post-body">{this.props.post.body}</div>
         <CommentIndex
@@ -47,12 +83,17 @@ class PostIndexItem extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
+});
+
 const mapDispatchToProps = dispatch => ({
-  fetchComments: () => dispatch(fetchComments())
+  fetchComments: () => dispatch(fetchComments()),
+  deletePost: (postId) => dispatch(deletePost(postId))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(PostIndexItem);
 

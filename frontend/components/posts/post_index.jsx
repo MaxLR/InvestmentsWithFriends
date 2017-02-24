@@ -35,11 +35,13 @@ class PostIndex extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => {
+  return ({
   profileOwner: state.user.profileOwner,
   posts: Object.keys(state.posts.posts).map((key) => state.posts.posts[key])
     .sort(function(a, b) {return (a.id > b.id) ? -1 : ((b.id > a.id) ? 1 : 0);} )
-});
+  });
+};
 
 export default connect(
   mapStateToProps,
