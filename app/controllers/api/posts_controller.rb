@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     if params["postsToFetch"] == "user"
       @posts = User.find(params["user_id"]).user_posts
     elsif params["postsToFetch"] == "news_feed"
-      @posts = current_user.friend_posts
+      @posts = (current_user.friend_posts + current_user.received_posts)
     else
       @posts = []
     end
