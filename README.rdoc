@@ -4,12 +4,9 @@
 
 [Investments With Friends][iwf]
 
-
 ## Summary
 
-[Investments With Friends][iwf] is a single-page web application that was inspired
-by Facebook, and built using Ruby on Rails utilizing React.js/flux architecture.
-Investments With Friends allows users to:
+[Investments With Friends][iwf] is a single-page web application that was inspired by Facebook, and built using Ruby on Rails utilizing React.js/flux architecture. Investments With Friends allows users to:
 
 * Create an account
 * Log in / Log out
@@ -21,13 +18,10 @@ Investments With Friends allows users to:
 ## Overall Structure
 
 #### Back end
-The app was built using Ruby on Rails on the back end with a postgreSQL database.
-Back end structure is RESTful and all the data requests use AJAX and are fulfilled with a JSON API.
-Associations are used to prefetch data in order to minimize SQL queries to the database.
+The app was built using Ruby on Rails on the back end with a postgreSQL database. Back end structure is RESTful and all the data requests use AJAX and are fulfilled with a JSON API. Associations are used to prefetch data in order to minimize SQL queries to the database.
 
 #### Front end
-The front end is built completely in [React.js][React] and JavaScript and utilizes React's [Flux][Flux] architecture.
-React's virtual DOM allows for lightning-quick re-rendering without requiring new pages to be sent from the server.
+The front end is built completely in [React.js][React] and JavaScript and utilizes React's [Flux][Flux] architecture. React's virtual DOM allows for lightning-quick re-rendering without requiring new pages to be sent from the server.
 
 #### Libraries
 
