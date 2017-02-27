@@ -2,11 +2,11 @@
 
 ![home]
 
-[Investments With Friends][iwf]
+[InvestmentsWithFriends][iwf]
 
 ## Summary
 
-[Investments With Friends][iwf] is a single-page web application that was inspired by Facebook, and built using Ruby on Rails utilizing React.js/flux architecture. Investments With Friends allows users to:
+[InvestmentsWithFriends][iwf] is a single-page web application that was inspired by Facebook, and built using Ruby on Rails utilizing React.js/flux architecture. Investments With Friends allows users to:
 
 * Create an account
 * Log in / Log out
