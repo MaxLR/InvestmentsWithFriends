@@ -65,9 +65,9 @@ Investments With Friends users can respond to posts with their own comments
 
 
 
-[user-profile]: ./app/assets/images/user-profile.PNG
-[comment]: ./app/assets/images/new-comment.PNG
-[post]: ./app/assets/images/new-post.PNG
-[feed]: ./app/assets/images/news-feed.PNG
-[signup]: ./app/assets/images/sign-up-errors.PNG
-[home]: ./app/assets/images/home-page.PNG
+[user-profile]: ./app/assets/images/user-profile.png
+[comment]: ./app/assets/images/new-comment.png
+[post]: ./app/assets/images/new-post.png
+[feed]: ./app/assets/images/news-feed.png
+[signup]: ./app/assets/images/sign-up-errors.png
+[home]: ./app/assets/images/home-page.png
