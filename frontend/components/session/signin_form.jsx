@@ -15,7 +15,7 @@ class SigninForm extends React.Component {
 
   signInGuest(e) {
     e.preventDefault();
-    this.props.signin({ email: "jeff@email.com", password: "starwars" });
+    this.props.signin({ email: "max@email.com", password: "asdfasdf" });
   }
 
   update(field) {
