@@ -5,6 +5,7 @@ import { createFriendship } from '../actions/friendship_actions';
 import { isFriend, isPendingFriend } from '../util/util';
 import { fetchUserPosts } from '../actions/post_actions';
 import NewsFeed from './news_feed';
+import RightSidebar from './right_sidebar';
 
 
 class UserShow extends React.Component {
@@ -164,7 +165,7 @@ class UserShow extends React.Component {
             {this.requestButton()}
           </div>
           <div className="profile-body">
-            <div className="news-feed user-feed">
+            <div className="home-wrapper">
               <NewsFeed
                 feedType="user"
                 profileOwnerId={this.props.profileOwner.id}/>

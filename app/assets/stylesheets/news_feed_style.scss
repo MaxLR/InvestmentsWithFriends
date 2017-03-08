@@ -1,7 +1,14 @@
+.home-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 1000px;
+  margin: 0 auto;
+}
+
 .news-feed {
   position: relative;
   top: 42px;
-  margin: 0 auto;
   width: 600px;
 }
 
@@ -78,6 +85,10 @@
   border: 1px solid #DFE0E4;
   border-radius: 3px;
   font-family: sans-serif;
+}
+
+.post-item:last-child {
+  margin-bottom: 20px;
 }
 
 .post-user-details {

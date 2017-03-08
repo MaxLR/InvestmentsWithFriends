@@ -24,10 +24,10 @@ class NewsFeed extends React.Component {
       );
     } else {
       return(
-        <div>
-          <NewPostItem recipientId={this.props.recipientId} />
-          <PostIndex action={this.props.action} />
-        </div>
+          <div className="news-feed">
+            <NewPostItem recipientId={this.props.recipientId} />
+            <PostIndex action={this.props.action} />
+          </div>
       );
     }
   }
@@ -40,7 +40,7 @@ const mapStateToProps = (state, ownProps) => {
   } else {
     recipientId = state.session.currentUser.id;
   }
-  
+
   return({
     recipientId: recipientId,
     friends: state.session.currentUser.friends
