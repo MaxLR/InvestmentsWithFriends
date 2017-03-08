@@ -52,9 +52,10 @@ Friendship.create!({friender_id: max.id, friendee_id: jeff.id, status: "accepted
 Friendship.create!({friender_id: ben.id, friendee_id: jeff.id, status: "accepted"})
 Friendship.create!({friender_id: max.id, friendee_id: warren.id, status: "accepted"})
 Friendship.create!({friender_id: max.id, friendee_id: ben.id})
-Friendship.create!({friender_id: max.id, friendee_id: bill.id})
+Friendship.create!({friender_id: bill.id, friendee_id: max.id})
+Friendship.create!({friender_id: mark.id, friendee_id: max.id})
 Friendship.create!({friender_id: max.id, friendee_id: peter.id, status: "accepted"})
-Friendship.create!({friender_id: max.id, friendee_id: carl.id})
+Friendship.create!({friender_id: carl.id, friendee_id: max.id})
 Friendship.create!({friender_id: max.id, friendee_id: richard.id, status: "accepted"})
 Friendship.create!({friender_id: max.id, friendee_id: mark.id})
 Friendship.create!({friender_id: max.id, friendee_id: lori.id, status: "accepted"})
@@ -92,7 +93,11 @@ post12 = Post.create!({poster_id: mark.id, postee_id: richard.id, body: "Yacht r
 post13 = Post.create!({poster_id: max.id, postee_id: max.id, body: "Today has been a great day!"})
 post14 = Post.create!({poster_id: warren.id, postee_id: mark.id, body: "Interesting acquisition that you made this past week, can't wait to see how it turns out!"})
 post15 = Post.create!({poster_id: ben.id, postee_id: ben.id, body: "The intelligent investor is a realist who sells to optimists and buys from pessimists."})
-post16 = Post.create!({poster_id: max.id, postee_id: max.id, body: "Thanks for visiting Investments with Friends!"})
+post16 = Post.create!({poster_id: mark.id, poastee_id: mark.id, body: "Excited to watch my Mavs beat the Lakers tonight!"})
+post17 = Post.create!({poster_id: mark.id, poastee_id: mark.id, body: "Ignorign artificial intelligence and neural networks now is like ignoring computers in the 70s. Learn about it now!"})
+
+
+post30 = Post.create!({poster_id: max.id, postee_id: max.id, body: "Thanks for visiting Investments with Friends!"})
 
 Comment.destroy_all
 
@@ -112,3 +117,4 @@ Comment.create!({user_id: ben.id, body: "Glad to see someone is listening to me!
 Comment.create!({user_id: warren.id, body: "Of course!", commentable_id: post9.id, commentable_type: "Post"})
 Comment.create!({user_id: mark.id, body: "Thanks, it was a little riskier than I usually like, but this seemed like too good of an opportunity to pass up!", commentable_id: post14.id, commentable_type: "Post"})
 Comment.create!({user_id: warren.id, body: "Too much risk for my taste, but I can definitely see the appeal!", commentable_id: post14.id, commentable_type: "Post"})
+Comment.create!({user_id: warren.id, body: "I couldn't agree more!", commentable_id: post17.id, commentable_type: "Post"})
