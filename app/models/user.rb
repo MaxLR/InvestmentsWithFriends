@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_attached_file :profile_photo, default_url: "default-profile-photo.jpg", s3_protocol: https
-  has_attached_file :cover_photo, default_url: "default-cover-photo.jpg", s3_protocol: https
+  has_attached_file :profile_photo, default_url: "default-profile-photo.jpg", s3_protocol: :https
+  has_attached_file :cover_photo, default_url: "default-cover-photo.jpg", s3_protocol: :https
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :cover_photo, content_type: /\Aimage\/.*\Z/
 
