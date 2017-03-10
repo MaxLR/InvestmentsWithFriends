@@ -9,7 +9,7 @@ const RightSidebar = () => {
           <div className="sidebar-section">
             <a href="https://github.com/MaxLR/InvestmentsWithFriends">
               <img className="sponsored-photo"
-              src='/assets/github.jpg'/>
+              src='https://s3.amazonaws.com/investments-with-friends-pro/github.jpg'/>
             </a>
             <a className="sponsored-link"
               href="https://github.com/MaxLR/InvestmentsWithFriends">
@@ -22,7 +22,7 @@ const RightSidebar = () => {
           <div className="sidebar-section">
             <a href="https://www.linkedin.com/in/MaxLR">
             <img className="sponsored-photo"
-              src='/assets/linkedin.jpg'/>
+              src='https://s3.amazonaws.com/investments-with-friends-pro/linkedin.jpg'/>
             </a>
             <a className="sponsored-link"
               href="https://www.linkedin.com/in/MaxLR">LinkedIn
