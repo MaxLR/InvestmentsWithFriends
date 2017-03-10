@@ -94,7 +94,7 @@ post13 = Post.create!({poster_id: max.id, postee_id: max.id, body: "Today has be
 post14 = Post.create!({poster_id: warren.id, postee_id: mark.id, body: "Interesting acquisition that you made this past week, can't wait to see how it turns out!"})
 post15 = Post.create!({poster_id: ben.id, postee_id: ben.id, body: "The intelligent investor is a realist who sells to optimists and buys from pessimists."})
 post16 = Post.create!({poster_id: mark.id, postee_id: mark.id, body: "Excited to watch my Mavs beat the Lakers tonight!"})
-post17 = Post.create!({poster_id: mark.id, postee_id: mark.id, body: "Ignorign artificial intelligence and neural networks now is like ignoring computers in the 70s. Learn about it now!"})
+post17 = Post.create!({poster_id: mark.id, postee_id: mark.id, body: "Ignoring artificial intelligence and neural networks now is like ignoring computers in the 70s. Learn about it now!"})
 
 
 post30 = Post.create!({poster_id: max.id, postee_id: max.id, body: "Thanks for visiting Investments with Friends!"})
