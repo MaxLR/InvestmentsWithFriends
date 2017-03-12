@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { signout } from '../actions/session_actions';
 import NewsFeed from './news_feed';
 import RightSidebar from './right_sidebar';
+import LeftSidebar from './left_sidebar';
 
 class Home extends React.Component {
   render() {
     if (this.props.currentUser) {
       return(
         <div className="home-wrapper">
+          <LeftSidebar />
           <NewsFeed />
           <RightSidebar />
         </div>
@@ -38,6 +40,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home);
-
-//inside render, if logged_in & ownProps.location.pathname === '/' render
-//navbar & news feed otherwise; navbar & children

@@ -144,3 +144,11 @@
 .hidden {
   display: none;
 }
+
+.row-align {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 930px;
+  margin: 0 auto;
+}

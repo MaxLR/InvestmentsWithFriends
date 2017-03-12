@@ -5,7 +5,7 @@ import { createFriendship } from '../actions/friendship_actions';
 import { isFriend, isPendingFriend } from '../util/util';
 import { fetchUserPosts } from '../actions/post_actions';
 import NewsFeed from './news_feed';
-import RightSidebar from './right_sidebar';
+import LeftSidebar from './left_sidebar';
 
 
 class UserShow extends React.Component {
@@ -148,21 +148,24 @@ class UserShow extends React.Component {
     } else {
       return (
         <div>
-          <div className="profile-cover">
-            <div className="cover-section">
-              <img className="cover-pic"
-                src={this.props.profileOwner.cover_photo_url} />
-              {this.getCoverUpload()}
+          <div className="row-align">
+            <LeftSidebar />
+            <div className="profile-cover">
+              <div className="cover-section">
+                <img className="cover-pic"
+                  src={this.props.profileOwner.cover_photo_url} />
+                {this.getCoverUpload()}
+              </div>
+              <div className="profile-pic-container">
+                <img className="profile-pic"
+                  src={this.props.profileOwner.profile_photo_url} />
+                {this.getProfileUpload()}
+              </div>
+              <div className="filter-bar">
+                <button className="filter-option">Timeline</button>
+              </div>
+              {this.requestButton()}
             </div>
-            <div className="profile-pic-container">
-              <img className="profile-pic"
-                src={this.props.profileOwner.profile_photo_url} />
-              {this.getProfileUpload()}
-            </div>
-            <div className="filter-bar">
-              <button className="filter-option">Timeline</button>
-            </div>
-            {this.requestButton()}
           </div>
           <div className="profile-body">
             <div className="home-wrapper">

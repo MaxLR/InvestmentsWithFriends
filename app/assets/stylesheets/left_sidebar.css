@@ -1,0 +1,40 @@
+.left-sidebar-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+  left: -135px;
+  font-family: sans-serif;
+}
+
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 72px;
+  max-width: 300px;
+  justify-content: center;
+}
+
+.left-nav-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.left-nav-section > * {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  border: 1px solid #EDF0F5;
+}
+
+.left-nav-header {
+  font-weight: bolder;
+  color: #4D5158;
+}
+
+.left-nav-section > a:hover {
+  border: 1px solid #DDDFE2;
+}
