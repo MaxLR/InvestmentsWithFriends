@@ -30,6 +30,22 @@
   border: 1px solid #EDF0F5;
 }
 
+.left-nav-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.left-sidebar-picture {
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+}
+
+.fa-newspaper-o {
+  margin-right: 3px;
+}
+
 .left-nav-header {
   font-weight: bolder;
   color: #4D5158;
