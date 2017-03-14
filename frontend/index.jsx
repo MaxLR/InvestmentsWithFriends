@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-// import { signup, signin, signout } from './actions/session_actions';
-// import {isFriend, isPendingFriend} from './util/util';
-// import { fetchUserPosts, fetchNewsfeedPosts, createPost, deletePost }
-//   from './actions/post_actions';
+
 import { fetchComments, createComment, deleteComment }
   from './actions/comment_actions';
 
@@ -17,19 +14,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.store = store;
     ReactDOM.render(<Root store={ store }/>, root);
 });
-
-// window.signup = signup;
-// window.signin = signin;
-// window.signout = signout;
-//
-// window.isFriend = isFriend;
-// window.isPendingFriend = isPendingFriend;
-//
-// window.fetchUserPosts = fetchUserPosts;
-// window.fetchNewsfeedPosts = fetchNewsfeedPosts;
-// window.createPost = createPost;
-// window.deletePost = deletePost;
-//
-// window.fetchComments = fetchComments;
-// window.createComment = createComment;
-// window.deleteComment = deleteComment;

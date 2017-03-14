@@ -12,7 +12,7 @@ class LeftSidebar extends React.Component {
               to={`/users/${this.props.currentUser.id}`}>
               <img className="left-sidebar-picture"
                 src={this.props.currentUser.profile_photo_url}
-                /> {this.props.currentUser.f_name} {this.props.currentUser.l_name}
+                />{this.props.currentUser.f_name} {this.props.currentUser.l_name}
             </Link>
             <Link className="left-nav-link" to="/">
               <i className="fa fa-newspaper-o" aria-hidden="true"></i> News Feed
