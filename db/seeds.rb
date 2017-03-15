@@ -10,40 +10,63 @@ User.destroy_all
 
 max = User.create!({f_name: "Max", l_name: "Rauchman", sex: "M",
   password: "asdfasdf", email: "max@email.com", birthday: "8-26-1990",
+  hometown: "Miami", current_city: "New York", relationship: "Single",
+  school: "App Academy", employer: "Student",
   profile_photo: File.open('app/assets/images/max.jpg')})
 jeff = User.create!({f_name: "Jeff", l_name: "Wu", sex: "M",
   password: "starwars", email: "jeff@email.com", birthday: "9-29-1989",
+  hometown: "New York", current_city: "New York", relationship: "In a Relationship",
+  school: "App Academy", employer: "Student",
   profile_photo: File.open('app/assets/images/jwu.jpg')})
 warren = User.create!({f_name: "Warren", l_name: "Buffet", sex: "M",
   password: "password1", email: "w_buffet@berkshire_hathaway.com",
-  birthday: "8-30-1930",
+  birthday: "8-30-1930", hometown: "Omaha", current_city: "Omaha",
+  relationship: "Married", school: "Columbia Business School", employer: "Berkshire Hathaway",
   profile_photo: File.open('app/assets/images/buffet.jpg')})
 ben = User.create!({f_name: "Ben", l_name: "Graham", sex: "M",
   password: "password1", email: "bgraham@email.com", birthday: "9-21-1976",
+  hometown: "London", current_city: "London", relationship: "It's Complicated",
+  school: "Columbia University", employer: "Retired",
   profile_photo: File.open('app/assets/images/ben.jpg')})
 peter = User.create!({f_name: "Peter", l_name: "Lynch", sex: "M",
   password: "password1", email: "p.lynch@email.com", birthday: "1-19-1944",
+  hometown: "Newton", current_city: "Newton", relationship: "Married",
+  school: "Boston College", employer: "Retired",
   profile_photo: File.open('app/assets/images/pete.jpg')})
 bill = User.create!({f_name: "Bill", l_name: "Gates", sex: "M",
   password: "password1", email: "bill_gates@microsoft.com", birthday: "10-28-1955",
+  hometown: "Seattle", current_city: "Medina", relationship: "Married",
+  school: "Harvard", employer: "Microsoft",
   profile_photo: File.open('app/assets/images/bill.jpg')})
 carl = User.create!({f_name: "Carl", l_name: "Icahn", sex: "M",
   password: "password1", email: "c.icahn@email.com", birthday: "2-16-1936",
+  hometown: "New York", current_city: "New York", relationship: "Married",
+  school: "Princeton", employer: "Icahn Industries",
   profile_photo: File.open('app/assets/images/carl.jpg')})
 richard = User.create!({f_name: "Richard", l_name: "Branson", sex: "M",
   password: "password1", email: "richard@virgin-group.com", birthday: "7-18-1950",
+  hometown: "London", current_city: "Necker Island", relationship: "Married",
+  school: "Stowe School", employer: "Virgin",
   profile_photo: File.open('app/assets/images/richard.jpg')})
 mark = User.create!({f_name: "Mark", l_name: "Cuban", sex: "M",
   password: "password1", email: "mark@markcuban.com", birthday: "7-31-1958",
+  hometown: "Pittsburgh", current_city: "Pittsburgh", relationship: "Married",
+  school: "University of Pittsburgh", employer: "Co-owner of 2929 Entertainment",
   profile_photo: File.open('app/assets/images/mark.jpg')})
 lori = User.create!({f_name: "Lori", l_name: "Greiner", sex: "F",
   password: "password1", email: "lori@lorigreiner.com", birthday: "12-9-1969",
+  hometown: "Chicago", current_city: "Chicago", relationship: "Single",
+  school: "Loyola", employer: "Self-employed",
   profile_photo: File.open('app/assets/images/lori.jpeg')})
 barb = User.create!({f_name: "Barbara", l_name: "Corcoran", sex: "F",
   password: "password1", email: "barb@barbaracorcoran.com", birthday: "3-10-1949",
+  hometown: "Edgewater", current_city: "Manhattan", relationship: "Married",
+  school: "St. Thomas Aquinas", employer: "The Corcoran Group",
   profile_photo: File.open('app/assets/images/barb.jpeg')})
 adam = User.create!({f_name: "Adam", l_name: "Richard", sex: "M",
   password: "password1", email: "adam.richard@gmail.com", birthday: "7-10-1984",
+  hometown: "Woodville", current_city: "New York", relationship: "Single",
+  school: "App Academy", employer: "Student",
   profile_photo: File.open('app/assets/images/arich.jpg')})
 
 Friendship.destroy_all

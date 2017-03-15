@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223141606) do
+ActiveRecord::Schema.define(version: 20170315021503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,15 +49,15 @@ ActiveRecord::Schema.define(version: 20170223141606) do
   add_index "posts", ["poster_id"], name: "index_posts_on_poster_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "f_name",                     null: false
-    t.string   "l_name",                     null: false
-    t.string   "email",                      null: false
-    t.string   "sex",                        null: false
-    t.string   "birthday",                   null: false
-    t.string   "password_digest",            null: false
-    t.string   "session_token",              null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "f_name",                                  null: false
+    t.string   "l_name",                                  null: false
+    t.string   "email",                                   null: false
+    t.string   "sex",                                     null: false
+    t.string   "birthday",                                null: false
+    t.string   "password_digest",                         null: false
+    t.string   "session_token",                           null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "profile_photo_file_name"
     t.string   "profile_photo_content_type"
     t.integer  "profile_photo_file_size"
@@ -66,6 +66,11 @@ ActiveRecord::Schema.define(version: 20170223141606) do
     t.string   "cover_photo_content_type"
     t.integer  "cover_photo_file_size"
     t.datetime "cover_photo_updated_at"
+    t.string   "hometown",                   default: ""
+    t.string   "current_city",               default: ""
+    t.string   "relationship",               default: ""
+    t.string   "school",                     default: ""
+    t.string   "employer",                   default: ""
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
