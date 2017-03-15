@@ -5,6 +5,7 @@ import { createFriendship } from '../actions/friendship_actions';
 import { isFriend, isPendingFriend } from '../util/util';
 import { fetchUserPosts } from '../actions/post_actions';
 import NewsFeed from './news_feed';
+import UserInfo from './user_info';
 import LeftSidebar from './left_sidebar';
 
 
@@ -169,6 +170,7 @@ class UserShow extends React.Component {
           </div>
           <div className="profile-body">
             <div className="home-wrapper">
+              <UserInfo />
               <NewsFeed
                 feedType="user"
                 profileOwnerId={this.props.profileOwner.id}/>

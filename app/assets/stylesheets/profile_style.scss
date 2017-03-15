@@ -152,3 +152,17 @@
   width: 930px;
   margin: 0 auto;
 }
+
+.user-info {
+  position: relative;
+  top: 72px;
+  width: 270px;
+  margin: 0 25px;
+}
+
+.info-wrapper {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
