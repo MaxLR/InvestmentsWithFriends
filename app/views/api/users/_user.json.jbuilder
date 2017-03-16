@@ -27,10 +27,12 @@ json.friends user.all_friendships do |friendship|
   json.friendee_id friendship.friendee_id
   json.status friendship.status
   if user.id == friendship.friender.id
+    json.friendId friendship.friendee.id
     json.fName friendship.friendee.f_name
     json.lName friendship.friendee.l_name
     json.profilePhotoUrl asset_path(friendship.friendee.profile_photo.url)
   else
+    json.friendId friendship.friender.id
     json.fName friendship.friender.f_name
     json.lName friendship.friender.l_name
     json.profilePhotoUrl asset_path(friendship.friender.profile_photo.url)

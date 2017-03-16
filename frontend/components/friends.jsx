@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link, withRouter, Router } from 'react-router';
 
 class Friends extends React.Component {
   constructor(props) {
@@ -27,9 +28,13 @@ class Friends extends React.Component {
   renderFriend(friend) {
     return(
       <div key={`${friend.id}`} className="friend-display">
-        <img className="friend-profile-photo"
-          src={friend.profilePhotoUrl} />
-        <div className="friend-name">{friend.fName} {friend.lName}</div>
+        <Link
+        to={`/users/${friend.friendId}`}
+        className="user-link">
+          <img className="friend-profile-photo"
+            src={friend.profilePhotoUrl} />
+          <div className="friend-name">{friend.fName} {friend.lName}</div>
+        </Link>
       </div>
     );
   }
@@ -37,7 +42,10 @@ class Friends extends React.Component {
   render() {
     return (
       <div className="friends-panel">
-        {this.renderFriends()}
+        <div className="friends-header">{`${this.props.profileOwner.f_name}'s Friends`}</div>
+        <div className="friends-list">
+          {this.renderFriends()}
+        </div>
       </div>
     );
   }
@@ -50,4 +58,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(Friends);
+)(withRouter(Friends));

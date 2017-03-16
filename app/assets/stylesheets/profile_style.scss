@@ -170,11 +170,16 @@
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .info-header {
   margin: 10px 0;
+  color: #A1A5AE;
+}
+
+.friends-header {
+  margin: 10px 15px;
   color: #A1A5AE;
 }
 
@@ -198,8 +203,7 @@
 .friends-panel {
   position: relative;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   top: 82px;
   width: 270px;
   padding: 4px;
@@ -211,6 +215,12 @@
   border-radius: 3px;
   font-family: sans-serif;
   background-color: white;
+}
+
+.friends-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .friend-display {
@@ -225,6 +235,7 @@
 
 .friend-name {
   font-size: 12px;
+  font-weight: normal;
   position: absolute;
   bottom: 5px;
   left: 5px;
