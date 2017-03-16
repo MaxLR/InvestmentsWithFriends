@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateUser, fetchUser } from '../actions/user_actions';
+import { updateUser } from '../actions/user_actions';
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -88,8 +88,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: (userId, formData) => dispatch(updateUser(userId, formData)),
-  fetchUser: (userId) => dispatch(fetchUser(userId))
+  updateUser: (userId, formData) => dispatch(updateUser(userId, formData))
 });
 
 export default connect(
