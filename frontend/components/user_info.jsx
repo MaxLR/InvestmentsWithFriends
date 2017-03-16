@@ -19,12 +19,31 @@ class UserInfo extends React.Component {
     return(
       <div className="user-info">
         <div className="info-wrapper">
-          <div><div>Birthday:</div><div>{this.state.birthday}</div></div>
-          <div><div>Hometown:</div><div>{this.state.hometown}</div></div>
-          <div><div>Current City:</div><div>{this.state.currentCity}</div></div>
-          <div><div>Relationship:</div><div>{this.state.relationship}</div></div>
-          <div><div>School:</div><div>{this.state.school}</div></div>
-          <div><div>Employer:</div><div>{this.state.employer}</div></div>
+          <div className="info-header">{`About ${this.props.profileOwner.f_name}`}</div>
+          <div className="info-item">
+            <div className="info-title">Birthday:</div>
+            <div>{this.state.birthday}</div>
+          </div>
+          <div className="info-item">
+            <div className="info-title">Hometown:</div>
+            <div>{this.state.hometown}</div>
+          </div>
+          <div className="info-item">
+            <div className="info-title">Current City:</div>
+            <div>{this.state.currentCity}</div>
+          </div>
+          <div className="info-item">
+            <div className="info-title">Relationship:</div>
+            <div>{this.state.relationship}</div>
+          </div>
+          <div className="info-item">
+            <div className="info-title">School:</div>
+            <div>{this.state.school}</div>
+          </div>
+          <div className="info-item">
+            <div className="info-title">Employer:</div>
+            <div>{this.state.employer}</div>
+          </div>
         </div>
       </div>
     );

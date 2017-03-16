@@ -158,6 +158,7 @@
   top: 72px;
   width: 270px;
   margin: 0 25px;
+  font-family: sans-serif;
 }
 
 .info-wrapper {
@@ -165,4 +166,20 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+}
+
+.info-header {
+  margin: 10px 0;
+  color: #A1A5AE;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: row;
+  margin: 7px 0;
+  font-size: 14px;
+}
+
+.info-title {
+  margin-right: 10px;
 }
