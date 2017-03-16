@@ -163,6 +163,11 @@
 
 .info-wrapper {
   background-color: white;
+  border-right: 1px solid #DFE0E4;
+  border-bottom: 1px solid #DFE0E4;
+  border-top: 1px solid #E5E6E9;
+  border-left: 1px solid #E5E6E9;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   padding: 20px;

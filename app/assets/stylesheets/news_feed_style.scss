@@ -23,7 +23,10 @@
   flex-direction: row;
   height: 190px;
   width: 600px;
-  border: 1px solid #DFE0E4;
+  border-right: 1px solid #DFE0E4;
+  border-bottom: 1px solid #DFE0E4;
+  border-top: 1px solid #E5E6E9;
+  border-left: 1px solid #E5E6E9;
   border-radius: 3px;
   background-color: white;
   margin: 0 auto;
@@ -82,7 +85,10 @@
   min-height: 150px;
   background-color: white;
   margin-top: 25px;
-  border: 1px solid #DFE0E4;
+  border-right: 1px solid #DFE0E4;
+  border-bottom: 1px solid #DFE0E4;
+  border-top: 1px solid #E5E6E9;
+  border-left: 1px solid #E5E6E9;
   border-radius: 3px;
   font-family: sans-serif;
 }
