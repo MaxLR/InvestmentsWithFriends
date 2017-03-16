@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateUser } from '../actions/user_actions';
+import { updateUser, fetchUser } from '../actions/user_actions';
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -14,6 +14,20 @@ class UserInfo extends React.Component {
       employer: this.props.profileOwner.employer
     };
   }
+
+  componentWillReceiveProps({ profileOwner }) {
+    if (!(profileOwner.id === this.props.profileOwner.id)) {
+      this.setState({
+        birthday: profileOwner.birthday,
+        hometown: profileOwner.hometown,
+        currentCity: profileOwner.currentCity,
+        relationship: profileOwner.relationship,
+        school: profileOwner.school,
+        employer: profileOwner.employer,
+      });
+    }
+  }
+
 
   render() {
     return(
@@ -56,7 +70,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: (userId, formData) => dispatch(updateUser(userId, formData))
+  updateUser: (userId, formData) => dispatch(updateUser(userId, formData)),
+  fetchUser: (userId) => dispatch(fetchUser(userId))
 });
 
 export default connect(
