@@ -181,5 +181,11 @@
 }
 
 .info-title {
-  margin-right: 10px;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.info-icon {
+  margin-right: 5px;
 }

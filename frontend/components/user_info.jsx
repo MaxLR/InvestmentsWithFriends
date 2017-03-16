@@ -35,27 +35,45 @@ class UserInfo extends React.Component {
         <div className="info-wrapper">
           <div className="info-header">{`About ${this.props.profileOwner.f_name}`}</div>
           <div className="info-item">
-            <div className="info-title">Birthday:</div>
+            <div className="info-title">
+              <i className="fa fa-birthday-cake info-icon" aria-hidden="true"></i>
+              Birthday:
+            </div>
             <div>{this.state.birthday}</div>
           </div>
           <div className="info-item">
-            <div className="info-title">Hometown:</div>
+            <div className="info-title">
+              <i className="fa fa-globe info-icon" aria-hidden="true"></i>
+              Hometown:
+            </div>
             <div>{this.state.hometown}</div>
           </div>
           <div className="info-item">
-            <div className="info-title">Current City:</div>
+            <div className="info-title">
+              <i className="fa fa-home info-icon" aria-hidden="true"></i>
+              Current City:
+            </div>
             <div>{this.state.currentCity}</div>
           </div>
           <div className="info-item">
-            <div className="info-title">Relationship:</div>
+            <div className="info-title">
+              <i className="fa fa-heart info-icon" aria-hidden="true"></i>
+              Relationship:
+            </div>
             <div>{this.state.relationship}</div>
           </div>
           <div className="info-item">
-            <div className="info-title">School:</div>
+            <div className="info-title">
+              <i className="fa fa-graduation-cap info-icon" aria-hidden="true"></i>
+              School:
+            </div>
             <div>{this.state.school}</div>
           </div>
           <div className="info-item">
-            <div className="info-title">Employer:</div>
+            <div className="info-title">
+              <i className="fa fa-briefcase info-icon" aria-hidden="true"></i>
+              Employer:
+            </div>
             <div>{this.state.employer}</div>
           </div>
         </div>

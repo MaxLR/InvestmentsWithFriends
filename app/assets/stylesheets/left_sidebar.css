@@ -54,3 +54,7 @@
 .left-nav-section > a:hover {
   border: 1px solid #DDDFE2;
 }
+
+.self-link-fname {
+  margin-right: 3px;
+}
