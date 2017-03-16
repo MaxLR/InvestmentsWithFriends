@@ -76,3 +76,20 @@
     display: none;
   }
 }
+
+@media only screen and (max-height: 704px) {
+  .build-description {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 629px) {
+  .right-sidebar-wrapper {
+    width: 0px;
+  }
+
+  .right-sidebar {
+    width: 0;
+    display: none;
+  }
+}

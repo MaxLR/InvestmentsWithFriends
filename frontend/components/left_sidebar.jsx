@@ -16,23 +16,23 @@ class LeftSidebar extends React.Component {
               <div>{this.props.currentUser.l_name}</div>
             </Link>
             <Link className="left-nav-link" to="/">
-              <i className="fa fa-newspaper-o" aria-hidden="true"></i> News Feed
+              <i className="fa fa-newspaper-o left-sidebar-icon" aria-hidden="true"></i> News Feed
             </Link>
           </div>
           <div className="left-nav-section">
             <div className="left-nav-header">Projects</div>
             <a href="http://www.maxrauchman.com" target="_blank">
-              <i className="fa fa-user" aria-hidden="true"></i> Portfolio
+              <i className="fa fa-user left-sidebar-icon" aria-hidden="true"></i> Portfolio
             </a>
             <a href="http://www.maxrauchman.com/aDOMinableSnowman"
               target="_blank">
-              <i className="fa fa-snowflake-o" aria-hidden="true"></i> aDOMinable Snowman
+              <i className="fa fa-snowflake-o left-sidebar-icon" aria-hidden="true"></i> aDOMinable Snowman
             </a>
           </div>
           <div className="left-nav-section">
             <div className="left-nav-header">Games</div>
             <a href="http://www.maxrauchman.com/nyanJump" target="_blank">
-              <i className="fa fa-gamepad" aria-hidden="true"></i> Nyan Jump
+              <i className="fa fa-gamepad left-sidebar-icon" aria-hidden="true"></i> Nyan Jump
             </a>
           </div>
         </div>
