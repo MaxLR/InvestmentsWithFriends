@@ -7,7 +7,7 @@ import { fetchUserPosts } from '../actions/post_actions';
 import NewsFeed from './news_feed';
 import UserInfo from './user_info';
 import LeftSidebar from './left_sidebar';
-
+import Friends from './friends';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -170,7 +170,10 @@ class UserShow extends React.Component {
           </div>
           <div className="profile-body">
             <div className="home-wrapper">
-              <UserInfo />
+              <div>
+                <UserInfo />
+                <Friends />
+              </div>
               <NewsFeed
                 feedType="user"
                 profileOwnerId={this.props.profileOwner.id}/>

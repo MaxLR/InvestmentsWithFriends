@@ -113,7 +113,7 @@
 }
 
 .friend-button {
-  position: relative;
+  position: absolute;
   z-index: 5;
   padding: 5px;
   border: 1px solid black;
@@ -156,8 +156,8 @@
 .user-info {
   position: relative;
   top: 72px;
-  width: 270px;
-  margin: 0 25px;
+  width: 280px;
+  margin: 0 15px;
   font-family: sans-serif;
 }
 
@@ -193,4 +193,41 @@
 
 .info-icon {
   margin-right: 5px;
+}
+
+.friends-panel {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  top: 82px;
+  width: 270px;
+  padding: 4px;
+  margin: 0 15px;
+  border-right: 1px solid #DFE0E4;
+  border-bottom: 1px solid #DFE0E4;
+  border-top: 1px solid #E5E6E9;
+  border-left: 1px solid #E5E6E9;
+  border-radius: 3px;
+  font-family: sans-serif;
+  background-color: white;
+}
+
+.friend-display {
+  margin: 5px;
+  position: relative;
+}
+
+.friend-profile-photo {
+  height: 80px;
+  width: 80px;
+}
+
+.friend-name {
+  font-size: 12px;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: white;
+  width: 70px;
 }
