@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter, Router } from 'react-router';
 import { deleteComment } from '../../actions/comment_actions';
+import CommentIndex from './comment_index';
 
 class CommentIndexItem extends React.Component {
   constructor(props) {
@@ -56,6 +57,8 @@ class CommentIndexItem extends React.Component {
           </Link>
           <div className="comment-message">{this.props.comment.body}</div>
         </div>
+        <CommentIndex
+          commentIds={this.props.comment.commentIds}
         {this.populateOptions()}
       </div>
     );
