@@ -19,7 +19,7 @@ class CommentIndex extends React.Component {
           {this.mapCommentsToCommentItems(this.props.comments)}
         </ul>
         <NewCommentItem commentableType={this.props.commentableType}
-          commentableId={this.props.commentableId} />
+          commentableId={this.props.commentableId} level={this.props.level || 1}/>
       </div>
     );
   }

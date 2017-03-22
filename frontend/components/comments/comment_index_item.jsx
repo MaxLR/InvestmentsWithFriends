@@ -57,8 +57,13 @@ class CommentIndexItem extends React.Component {
           </Link>
           <div className="comment-message">{this.props.comment.body}</div>
         </div>
-        <CommentIndex
-          commentIds={this.props.comment.commentIds}
+        {this.props.comment.commentableType === "Post" &&
+          <CommentIndex
+            commentIds={this.props.comment.commentIds}
+            commentableType="Comment"
+            commentableId={this.props.comment.id}
+            level={2}/>
+        }
         {this.populateOptions()}
       </div>
     );

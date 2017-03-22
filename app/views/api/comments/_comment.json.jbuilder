@@ -2,6 +2,7 @@ json.id comment.id
 json.commentableId comment.commentable_id
 json.commentableType comment.commentable_type
 json.body comment.body
+json.level comment.level
 
 json.userId comment.user_id
 json.userFName comment.user.f_name

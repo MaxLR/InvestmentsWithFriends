@@ -19,7 +19,7 @@ class NewCommentItem extends React.Component {
       comment: {
         commentable_id: this.props.commentableId,
         commentable_type: this.props.commentableType,
-        body: this.state.body
+        body: this.state.body,
       }
     };
     this.props.createComment(comment)
