@@ -45,17 +45,20 @@ class CommentIndexItem extends React.Component {
 
   render() {
     return (
-      <div className="comment-index-item">
-        <Link to={`/users/${this.props.comment.userId}`} >
-          <img className="comment-profile-photo"
-            src={this.props.comment.userProfilePhoto} />
-        </Link>
-        <div className="comment-body">
-          <Link className="commenter-name"
-            to={`/users/${this.props.comment.userId}`}>
-            {this.props.comment.userFName} {this.props.comment.userLName}
+      <div className="comment-item-wrapper">
+        <div className="comment-index-item">
+          <Link to={`/users/${this.props.comment.userId}`} >
+            <img className="comment-profile-photo"
+              src={this.props.comment.userProfilePhoto} />
           </Link>
-          <div className="comment-message">{this.props.comment.body}</div>
+          <div className="comment-body">
+            <Link className="commenter-name"
+              to={`/users/${this.props.comment.userId}`}>
+              {this.props.comment.userFName} {this.props.comment.userLName}
+            </Link>
+            <div className="comment-message">{this.props.comment.body}</div>
+          </div>
+          {this.populateOptions()}
         </div>
         {this.props.comment.commentableType === "Post" &&
           <CommentIndex
@@ -64,7 +67,6 @@ class CommentIndexItem extends React.Component {
             commentableId={this.props.comment.id}
             level={2}/>
         }
-        {this.populateOptions()}
       </div>
     );
   }
