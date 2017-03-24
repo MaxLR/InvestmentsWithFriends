@@ -5,6 +5,7 @@ export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RESET_ERRORS = "RESET_ERRORS";
+export const ADD_NESTED_COMMENT = "ADD_NESTED_COMMENT";
 
 export const receiveComment = (comment) => ({
   type: RECEIVE_COMMENT,

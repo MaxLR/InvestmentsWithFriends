@@ -65,7 +65,8 @@ class CommentIndexItem extends React.Component {
             commentIds={this.props.comment.commentIds}
             commentableType="Comment"
             commentableId={this.props.comment.id}
-            level={2}/>
+            level={2}
+            parentId={this.props.comment.commentableId}/>
         }
       </div>
     );

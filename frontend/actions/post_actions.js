@@ -27,7 +27,7 @@ export const resetErrors = () => ({
 });
 
 export const addComment = ({ comment }) => ({
- type: ADD_COMMENT,
+  type: ADD_COMMENT,
   commentId: comment.id,
   postId: comment.commentableId
 });
