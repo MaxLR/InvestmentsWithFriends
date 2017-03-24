@@ -31,6 +31,12 @@ export const removeComment = (comment) => ({
   commentId: comment.id
 });
 
+export const addNestedComment = ({ comment }) => ({
+  type: ADD_NESTED_COMMENT,
+  commentId: comment.id,
+  parentId: comment.commentableId
+});
+
 export const createComment = (comment) => {
   return (dispatch) => {
     return APIUtil.createComment(comment)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createComment, receiveComments } from '../../actions/comment_actions';
+import { createComment, addNestedComment } from '../../actions/comment_actions';
 import { addComment } from '../../actions/post_actions';
 
 class NewCommentItem extends React.Component {
@@ -22,10 +22,11 @@ class NewCommentItem extends React.Component {
         body: this.state.body,
       }
     };
+    const parentId = this.props.parentId;
     this.props.createComment(comment)
       .then((newComment) => {
         if (newComment.comment.commentableType === "Comment") {
-          // this.props.receiveComments();
+          this.props.addNestedComment(newComment);
           // get nested comments to re-render within this portion of the if statement
         } else {
           this.props.addComment(newComment);
@@ -57,7 +58,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   createComment: (comment) => dispatch(createComment(comment)),
   addComment: (comment) => dispatch(addComment(comment)),
-  receiveComments: () => dispatch(receiveComments())
+  addNestedComment: (comment) => dispatch(addNestedComment(comment))
 });
 
 export default connect(
