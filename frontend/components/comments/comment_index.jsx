@@ -11,9 +11,12 @@ class CommentIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.replyHidden !== this.props.replyHidden) {
-      debugger
-      this.setState({ replyHidden: newProps.replyHidden});
+      this.showReply();
     }
+  }
+
+  showReply() {
+    this.setState({ replyHidden: false });
   }
 
   mapCommentsToCommentItems(comments) {
@@ -25,13 +28,14 @@ class CommentIndex extends React.Component {
   }
 
   render() {
+    const renderNewCommentForm = (this.props.commentableType === "Post") ||
+      (this.props.commentableType === "Comment" && this.state.replyHidden === false);
     return (
       <div className="comment-index-container">
         <ul className="comment-index">
           {this.mapCommentsToCommentItems(this.props.comments)}
         </ul>
-        {(this.props.commentableType === "Comment" && this.state.replyHidden === false)
-          || this.props.commentableType === "Post" &&
+        {renderNewCommentForm &&
           <NewCommentItem commentableType={this.props.commentableType}
             commentableId={this.props.commentableId} level={this.props.level || 1}
             parentId={this.props.parentId}/>
