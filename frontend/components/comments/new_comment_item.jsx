@@ -27,7 +27,6 @@ class NewCommentItem extends React.Component {
       .then((newComment) => {
         if (newComment.comment.commentableType === "Comment") {
           this.props.addNestedComment(newComment);
-          // get nested comments to re-render within this portion of the if statement
         } else {
           this.props.addComment(newComment);
         }
