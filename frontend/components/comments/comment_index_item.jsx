@@ -7,11 +7,15 @@ import CommentIndex from './comment_index';
 class CommentIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { optionsHidden: true };
+    this.state = { optionsHidden: true, replyHidden: true };
   }
 
   toggleOptions(e) {
     this.setState({ optionsHidden: !this.state.optionsHidden });
+  }
+
+  showReply(e) {
+    this.setState({ replyHidden: false });
   }
 
   handleDelete(commentId) {
@@ -61,12 +65,16 @@ class CommentIndexItem extends React.Component {
           {this.populateOptions()}
         </div>
         {this.props.comment.commentableType === "Post" &&
-          <CommentIndex
-            commentIds={this.props.comment.commentIds}
-            commentableType="Comment"
-            commentableId={this.props.comment.id}
-            level={2}
-            parentId={this.props.comment.commentableId}/>
+          <div>
+            <div onClick={this.showReply.bind(this)}>Reply</div>
+            <CommentIndex
+              commentIds={this.props.comment.commentIds}
+              commentableType="Comment"
+              commentableId={this.props.comment.id}
+              level={2}
+              parentId={this.props.comment.commentableId}
+              replyHidden={this.state.replyHidden}/>
+          </div>
         }
       </div>
     );
