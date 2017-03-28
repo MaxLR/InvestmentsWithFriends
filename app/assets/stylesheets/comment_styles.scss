@@ -8,7 +8,25 @@
   flex-direction: column;
 }
 
-.comment-item-wrapper > .comment-index-container {
+.comment-replies {
+  // display: flex;
+  position: relative;
+  margin-top: 10px;
+}
+
+.reply-button {
+  position: absolute;
+  top: -16px;
+  left: 59px;
+  font-size: 13px;
+  color: #4A69A3;
+}
+
+.reply-button:hover {
+  cursor: pointer;
+}
+
+.comment-replies > .comment-index-container {
   margin-left: 30px;
 }
 
@@ -44,7 +62,7 @@
 
 .new-comment {
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 7px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;

@@ -65,8 +65,9 @@ class CommentIndexItem extends React.Component {
           {this.populateOptions()}
         </div>
         {this.props.comment.commentableType === "Post" &&
-          <div>
-            <div onClick={this.showReply.bind(this)}>Reply</div>
+          <div className="comment-replies">
+            <div className="reply-button"
+              onClick={this.showReply.bind(this)}>Reply</div>
             <CommentIndex
               commentIds={this.props.comment.commentIds}
               commentableType="Comment"
