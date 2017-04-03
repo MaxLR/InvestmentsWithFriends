@@ -61,11 +61,13 @@ class SignupForm extends React.Component {
 
   fetchErrors(field) {
     let error = "";
-    this.props.errors.forEach(currErr => {
-      if(currErr.includes(field)) {
-        error = currErr;
-      }
+    if (this.props.errors.length > 0) {
+      this.props.errors.forEach(currErr => {
+        if(currErr.includes(field)) {
+          error = currErr;
+        }
     });
+    }
 
     return error;
   }
