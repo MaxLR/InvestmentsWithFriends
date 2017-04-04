@@ -1,18 +1,9 @@
 class Api::LikesController < ApplicationController
-  def index
-    @likes = Like.all
-    render :index
-  end
-
-  def show
-    @like = Like.find(params[:id])
-  end
-
   def create
     @like = current_user.likes.new(like_params)
 
     if @like.save
-      render :show
+      render `api/#{like_params[:likeable_type]}s/#{like_params[:likeable_id]}`
     else
       render json: @like.errors.full_messages, status: 422
     end
@@ -21,12 +12,8 @@ class Api::LikesController < ApplicationController
   def destroy
     like = Like.find(params[:id])
 
-    if (current_user.id == comment.user_id)
-      comment.destroy
-      render json: like
-    else
-      render json: ["You can't unlike a post you haven't liked"], status: 401
-    end
+    comment.destroy
+    render `api/#{like_params[:likeable_type]}s/#{like_params[:likeable_id]}`
   end
 
   private
