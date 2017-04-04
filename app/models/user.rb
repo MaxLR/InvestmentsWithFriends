@@ -60,6 +60,11 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :user_id
 
+  has_many :likes,
+    class_name: :Like,
+    primary_key: :id,
+    foreign_key: :user_id
+
   belongs_to :user_only_name, -> { select(:f_name, :l_name, :profile_photo) },
    class_name: :User
 
