@@ -15,5 +15,5 @@ class Post < ActiveRecord::Base
     as: :commentable
 
   has_many :likes,
-    as: :likable
+    as: :likeable
 end
