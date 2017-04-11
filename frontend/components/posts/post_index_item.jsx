@@ -4,15 +4,27 @@ import { Link, withRouter, Router } from 'react-router';
 import CommentIndex from '../comments/comment_index';
 import { fetchComments } from '../../actions/comment_actions';
 import { deletePost } from '../../actions/post_actions';
+import { createLike, deleteLike } from '../../actions/like_actions';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { optionsHidden: true };
+    this.state = { optionsHidden: true, likeId: this.currentUserLikes()};
   }
 
   toggleOptions(e) {
     this.setState({ optionsHidden: !this.state.optionsHidden });
+  }
+
+  currentUserLikes() {
+    const currentUserId = this.props.currentUser.id;
+    this.props.post.likes.forEach(like => {
+      if (like.user_id === currentUserId) {
+        return like.id;
+      }
+    });
+
+    return null;
   }
 
   componentDidMount() {
@@ -49,6 +61,20 @@ class PostIndexItem extends React.Component {
     return postOptions;
   }
 
+  toggleLike() {
+    if (this.state.liked === true) {
+
+    }
+  }
+
+  populateLikes() {
+    return(
+      <div className="likes">
+        <div onClick={this.likePost}>Like</div>
+      </div>
+    );
+  }
+
   render() {
     let recipient;
     if (this.props.post.poster_id !== this.props.post.postee_id) {
@@ -79,6 +105,7 @@ class PostIndexItem extends React.Component {
           </div>
           {this.populateOptions()}
         <div className="post-body">{this.props.post.body}</div>
+        <div>{this.props.post.likes.length}</div>
         <CommentIndex
           commentIds={this.props.post.commentIds}
           commentableType="Post"
