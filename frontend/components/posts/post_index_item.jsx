@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter, Router } from 'react-router';
 import CommentIndex from '../comments/comment_index';
+import LikeItem from '../like.jsx';
 import { fetchComments } from '../../actions/comment_actions';
 import { deletePost } from '../../actions/post_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
@@ -105,7 +106,7 @@ class PostIndexItem extends React.Component {
           </div>
           {this.populateOptions()}
         <div className="post-body">{this.props.post.body}</div>
-        <div>{this.props.post.likes.length}</div>
+        <LikeItem likes={this.props.post.likes}/>
         <CommentIndex
           commentIds={this.props.post.commentIds}
           commentableType="Post"

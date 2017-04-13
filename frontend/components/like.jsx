@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createLike, deleteLike } from '../../actions/like_actions';
+import { createLike, deleteLike } from '../actions/like_actions';
 
 class LikeItem extends React.Component {
   constructor(props) {
@@ -9,7 +9,10 @@ class LikeItem extends React.Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <div></div>
+        <div>{this.props.likes.length > 0 ? `${this.props.likes.length}` : ""}</div>
+      </div>
     );
   }
 }
