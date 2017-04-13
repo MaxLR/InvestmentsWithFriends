@@ -10,7 +10,7 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { optionsHidden: true, likeId: this.currentUserLikes()};
+    this.state = { optionsHidden: true};
   }
 
   toggleOptions(e) {
@@ -95,7 +95,9 @@ class PostIndexItem extends React.Component {
           </div>
           {this.populateOptions()}
         <div className="post-body">{this.props.post.body}</div>
-        <LikeItem likes={this.props.post.likes}/>
+        <LikeItem likes={this.props.post.likes}
+          likeableId={this.props.post.id}
+          likeableType="Post"/>
         <CommentIndex
           commentIds={this.props.post.commentIds}
           commentableType="Post"

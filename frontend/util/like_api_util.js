@@ -8,7 +8,7 @@ export const createLike = (like) => {
   );
 };
 
-export const deleteComment = (likeId) => {
+export const deleteLike = (likeId) => {
   return (
     $.ajax({
       method: "DELETE",

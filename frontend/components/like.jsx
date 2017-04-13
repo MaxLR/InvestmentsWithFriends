@@ -5,23 +5,40 @@ import { createLike, deleteLike } from '../actions/like_actions';
 class LikeItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { likeId: this.currentUserLikes() };
   }
 
   currentUserLikes() {
     const currentUserId = this.props.currentUser.id;
-    this.props.post.likes.forEach(like => {
+    let likeId = null;
+    this.props.likes.forEach(like => {
       if (like.user_id === currentUserId) {
-        return like.id;
+        likeId = like.id;
       }
     });
 
-    return null;
+    return likeId;
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    if (this.state.likeId) {
+      this.props.deleteLike(this.state.likeId);
+    } else {
+      const like = {
+        like: {
+          likeable_id: this.props.likeableId,
+          likeable_type: this.props.likeableType,
+        }
+      };
+      this.props.createLike(like);
+    }
   }
 
   render() {
     return (
-      <div>
-        <div></div>
+      <div onClick={this.handleClick.bind(this)}>
+        <div>words</div>
         <div>{this.props.likes.length > 0 ? `${this.props.likes.length}` : ""}</div>
       </div>
     );

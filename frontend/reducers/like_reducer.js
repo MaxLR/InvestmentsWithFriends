@@ -14,6 +14,9 @@ const LikeReducer = (state = defaultState, action) => {
     case RECEIVE_LIKE:
       debugger
       break;
+    case REMOVE_LIKE:
+      debugger
+      break;
     default:
 
   }
