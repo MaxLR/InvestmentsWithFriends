@@ -17,17 +17,6 @@ class PostIndexItem extends React.Component {
     this.setState({ optionsHidden: !this.state.optionsHidden });
   }
 
-  currentUserLikes() {
-    const currentUserId = this.props.currentUser.id;
-    this.props.post.likes.forEach(like => {
-      if (like.user_id === currentUserId) {
-        return like.id;
-      }
-    });
-
-    return null;
-  }
-
   componentDidMount() {
     this.props.fetchComments();
   }

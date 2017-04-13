@@ -7,6 +7,17 @@ class LikeItem extends React.Component {
     super(props);
   }
 
+  currentUserLikes() {
+    const currentUserId = this.props.currentUser.id;
+    this.props.post.likes.forEach(like => {
+      if (like.user_id === currentUserId) {
+        return like.id;
+      }
+    });
+
+    return null;
+  }
+
   render() {
     return (
       <div>
@@ -17,7 +28,16 @@ class LikeItem extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  createLike: (like) => dispatch(createLike(like)),
+  deleteLike: (likeId) => dispatch(deleteLike(likeId))
+});
+
 export default connect(
-  null,
-  null
+  mapStateToProps,
+  mapDispatchToProps
 )(LikeItem);
