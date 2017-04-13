@@ -9,6 +9,7 @@ const defaultState = {
 };
 
 const LikeReducer = (state = defaultState, action) => {
+  debugger
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_LIKE:
