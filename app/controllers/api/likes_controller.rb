@@ -10,7 +10,6 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    debugger
     like = Like.find(params[:id])
 
     like.destroy

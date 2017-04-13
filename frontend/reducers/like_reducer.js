@@ -9,17 +9,16 @@ const defaultState = {
 };
 
 const LikeReducer = (state = defaultState, action) => {
-  debugger
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_LIKE:
       debugger
-      break;
+      return newState;
     case REMOVE_LIKE:
       debugger
-      break;
+      return newState;
     default:
-
+    return newState;
   }
 };
 
