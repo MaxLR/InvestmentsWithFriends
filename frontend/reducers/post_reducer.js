@@ -4,8 +4,10 @@ import {
   RECEIVE_ERRORS,
   RESET_ERRORS,
   ADD_COMMENT,
-  REMOVE_POST
+  REMOVE_POST,
 } from '../actions/post_actions';
+
+import { ADD_POST_LIKE } from '../actions/like_actions';
 import { merge } from 'lodash';
 
 const defaultState = {
@@ -27,6 +29,9 @@ const PostReducer = (state = defaultState, action) => {
       return newState;
     case ADD_COMMENT:
       newState.posts[action.postId].commentIds.push(action.commentId);
+      return newState;
+    case ADD_POST_LIKE:
+      newState.posts[action.like.likeableId].likes.push(action.like);
       return newState;
     case RECEIVE_ERRORS:
       newState.errors = action.errors;

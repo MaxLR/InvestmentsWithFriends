@@ -2,21 +2,22 @@ import * as APIUtil from '../util/like_api_util';
 
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const REMOVE_LIKE = "REMOVE_LIKE";
-
-export const receiveLike = (like) => ({
-  type: RECEIVE_LIKE,
-  like
-});
+export const ADD_POST_LIKE = "ADD_POST_LIKE";
 
 export const removeLike = (like) => ({
   type: REMOVE_LIKE,
   likeId: like.id
 });
 
-export const createLike = (like) => {
+export const addPostLike = (like) => ({
+  type: ADD_POST_LIKE,
+  like
+});
+
+export const createPostLike = (like) => {
   return (dispatch) => {
     return APIUtil.createLike(like)
-      .then((newLike) => dispatch(receiveLike(newLike)));
+      .then((newLike) => dispatch(addPostLike(newLike)));
   };
 };
 

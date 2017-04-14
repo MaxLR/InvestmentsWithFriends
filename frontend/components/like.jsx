@@ -1,11 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createLike, deleteLike } from '../actions/like_actions';
+import { createPostLike, deleteLike } from '../actions/like_actions';
+import { isEqual } from 'lodash';
 
 class LikeItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { likeId: this.currentUserLikes() };
+    this.state = { likeId: this.currentUserLikes(), likes: this.props.likes };
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (!isEqual(newProps.likes, this.props.likes)) {
+      this.setState({ likes: newProps.likes });
+    }
   }
 
   currentUserLikes() {
@@ -31,7 +38,10 @@ class LikeItem extends React.Component {
           likeable_type: this.props.likeableType,
         }
       };
-      this.props.createLike(like).then(this.setState({ likeId: this.currentUserLikes()}));
+      this.props.createPostLike(like).then(() => {
+        debugger
+        this.setState({ likeId: this.currentUserLikes()});
+      });
     }
   }
 
@@ -50,7 +60,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createLike: (like) => dispatch(createLike(like)),
+  createPostLike: (like) => dispatch(createPostLike(like)),
   deleteLike: (likeId) => dispatch(deleteLike(likeId))
 });
 
