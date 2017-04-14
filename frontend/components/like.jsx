@@ -1,6 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createPostLike, deleteLike } from '../actions/like_actions';
+import {
+  createPostLike,
+  deletePostLike,
+  createCommentLike,
+  deleteCommentLike
+} from '../actions/like_actions';
 import { isEqual } from 'lodash';
 
 class LikeItem extends React.Component {
@@ -45,14 +50,20 @@ class LikeItem extends React.Component {
           likeable_type: this.props.likeableType,
         }
       };
-      this.props.createPostLike(like);
+      this.props.createLike(like);
     }
   }
 
   render() {
+    let likeButton;
+    if (this.state.likeId) {
+      likeButton = <i className="fa fa-thumbs-up" aria-hidden="true"></i>;
+    } else {
+      likeButton = <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>;
+    }
     return (
       <div onClick={this.handleClick.bind(this)}>
-        <div>words</div>
+        {likeButton}
         <div>{this.props.likes.length > 0 ? `${this.props.likes.length}` : ""}</div>
       </div>
     );
@@ -63,10 +74,19 @@ const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
-const mapDispatchToProps = dispatch => ({
-  createPostLike: (like) => dispatch(createPostLike(like)),
-  deleteLike: (likeId) => dispatch(deleteLike(likeId))
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  if (ownProps.likeableType === "Post") {
+    return({
+      createLike: (like) => dispatch(createPostLike(like)),
+      deleteLike: (likeId) => dispatch(deletePostLike(likeId)),
+    });
+  } else if (ownProps.likeableType === "Comment") {
+    return({
+      createLike: (like) => dispatch(createCommentLike(like)),
+      deleteLike: (likeId) => dispatch(deleteCommentLike(likeId)),
+    });
+  }
+};
 
 export default connect(
   mapStateToProps,
