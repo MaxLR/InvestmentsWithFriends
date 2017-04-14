@@ -7,8 +7,8 @@ import {
   REMOVE_POST,
 } from '../actions/post_actions';
 
-import { ADD_POST_LIKE } from '../actions/like_actions';
-import { merge } from 'lodash';
+import { ADD_POST_LIKE, REMOVE_POST_LIKE } from '../actions/like_actions';
+import { merge, isEqual } from 'lodash';
 
 const defaultState = {
   posts: {},
@@ -32,6 +32,13 @@ const PostReducer = (state = defaultState, action) => {
       return newState;
     case ADD_POST_LIKE:
       newState.posts[action.like.likeableId].likes.push(action.like);
+      return newState;
+    case REMOVE_POST_LIKE:
+      newState.posts[action.like.likeable_id].likes.forEach((like, idx) => {
+        if (like.id === action.like.id) {
+          newState.posts[action.like.likeable_id].likes.splice(idx, 1);
+        }
+      });
       return newState;
     case RECEIVE_ERRORS:
       newState.errors = action.errors;
