@@ -11,7 +11,14 @@ class LikeItem extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (!isEqual(newProps.likes, this.props.likes)) {
-      this.setState({ likes: newProps.likes });
+      let likeId;
+      let currentUserId = this.props.currentUser.id;
+      newProps.likes.forEach(like => {
+        if (like.userId === currentUserId) {
+          likeId = like.id;
+        }
+      });
+      this.setState({ likes: newProps.likes, likeId: likeId });
     }
   }
 
@@ -38,10 +45,7 @@ class LikeItem extends React.Component {
           likeable_type: this.props.likeableType,
         }
       };
-      this.props.createPostLike(like).then(() => {
-        debugger
-        this.setState({ likeId: this.currentUserLikes()});
-      });
+      this.props.createPostLike(like);
     }
   }
 
