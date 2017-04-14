@@ -5,7 +5,6 @@ import CommentIndex from '../comments/comment_index';
 import LikeItem from '../like.jsx';
 import { fetchComments } from '../../actions/comment_actions';
 import { deletePost } from '../../actions/post_actions';
-import { createLike, deleteLike } from '../../actions/like_actions';
 
 class PostIndexItem extends React.Component {
   constructor(props) {

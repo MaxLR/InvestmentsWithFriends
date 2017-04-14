@@ -4,8 +4,9 @@ import {
   RECEIVE_ERRORS,
   RESET_ERRORS,
   REMOVE_COMMENT,
-  ADD_NESTED_COMMENT
+  ADD_NESTED_COMMENT,
 } from '../actions/comment_actions';
+import {   ADD_COMMENT_LIKE, REMOVE_COMMENT_LIKE } from '../actions/like_actions';
 import { merge } from 'lodash';
 
 const defaultState = {
@@ -26,6 +27,16 @@ const CommentReducer = (state = defaultState, action) => {
       return newState;
     case ADD_NESTED_COMMENT:
       newState[action.parentId].commentIds.push(action.commentId);
+      return newState;
+    case ADD_COMMENT_LIKE:
+      newState[action.like.likeableId].likes.push(action.like);
+      return newState;
+    case REMOVE_COMMENT_LIKE:
+      newState[action.like.likeableId].likes.forEach((like, idx) => {
+        if (like.id === action.like.id) {
+          newState[action.like.likeableId].likes.splice(idx, 1);
+        }
+      });
       return newState;
     case RECEIVE_ERRORS:
       newState.errors = action.errors;

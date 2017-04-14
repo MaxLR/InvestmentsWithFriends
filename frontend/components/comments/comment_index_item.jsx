@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter, Router } from 'react-router';
 import { deleteComment } from '../../actions/comment_actions';
 import CommentIndex from './comment_index';
+import LikeItem from '../like.jsx';
 
 class CommentIndexItem extends React.Component {
   constructor(props) {
@@ -64,6 +65,9 @@ class CommentIndexItem extends React.Component {
           </div>
           {this.populateOptions()}
         </div>
+        <LikeItem likes={this.props.comment.likes}
+          likeableId={this.props.comment.id}
+          likeableType="Comment"/>
         {this.props.comment.commentableType === "Post" &&
           <div className="comment-replies">
             <div className="reply-button"
