@@ -42,7 +42,7 @@ class LikeItem extends React.Component {
   handleClick(e) {
     e.preventDefault();
     if (this.state.likeId) {
-      this.props.deleteLike(this.state.likeId).then(this.setState({ likeId: null }));
+      this.props.deleteLike(this.state.likeId);
     } else {
       const like = {
         like: {

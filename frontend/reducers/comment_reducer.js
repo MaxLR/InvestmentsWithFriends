@@ -32,9 +32,9 @@ const CommentReducer = (state = defaultState, action) => {
       newState[action.like.likeableId].likes.push(action.like);
       return newState;
     case REMOVE_COMMENT_LIKE:
-      newState[action.like.likeableId].likes.forEach((like, idx) => {
+      newState[action.like.likeable_id].likes.forEach((like, idx) => {
         if (like.id === action.like.id) {
-          newState[action.like.likeableId].likes.splice(idx, 1);
+          newState[action.like.likeable_id].likes.splice(idx, 1);
         }
       });
       return newState;
