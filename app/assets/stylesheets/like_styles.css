@@ -1,0 +1,22 @@
+.like-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: 25px;
+  width: 35px;
+}
+
+.like-icon {
+  padding-right: 3px;
+}
+
+.like-wrapper:hover {
+  cursor: pointer;
+}
+
+.fa-thumbs-up, .like-count {
+  color: #5890FF;
+}
+
+.fa-thumbs-up, .fa-thumbs-o-up {
+  min-height: 18px;
+}

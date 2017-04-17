@@ -57,14 +57,14 @@ class LikeItem extends React.Component {
   render() {
     let likeButton;
     if (this.state.likeId) {
-      likeButton = <i className="fa fa-thumbs-up" aria-hidden="true"></i>;
+      likeButton = <i className="fa fa-thumbs-up like-icon" aria-hidden="true"></i>;
     } else {
-      likeButton = <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>;
+      likeButton = <i className="fa fa-thumbs-o-up like-icon" aria-hidden="true"></i>;
     }
     return (
-      <div onClick={this.handleClick.bind(this)}>
+      <div onClick={this.handleClick.bind(this)} className="like-wrapper">
         {likeButton}
-        <div>{this.props.likes.length > 0 ? `${this.props.likes.length}` : ""}</div>
+        <div className="like-count">{this.props.likes.length > 0 ? `${this.props.likes.length}` : ""}</div>
       </div>
     );
   }
