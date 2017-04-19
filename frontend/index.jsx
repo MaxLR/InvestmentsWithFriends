@@ -11,6 +11,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const store = configureStore(
       { session: {currentUser: window.currentUser, errors: [] } }
     );
-    window.store = store;
     ReactDOM.render(<Root store={ store }/>, root);
 });
