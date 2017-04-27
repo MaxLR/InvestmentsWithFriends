@@ -19,7 +19,7 @@ class LikeItem extends React.Component {
       let likeId;
       let currentUserId = this.props.currentUser.id;
       newProps.likes.forEach(like => {
-        if (like.userId === currentUserId) {
+        if (like.user_id === currentUserId) {
           likeId = like.id;
         }
       });
@@ -54,9 +54,9 @@ class LikeItem extends React.Component {
           likeable_type: this.props.likeableType,
         }
       };
-      this.props.createLike(like).then(data => {
-        debugger
-        this.assignLikeId(data.like.id);
+      let that = this;
+      this.props.createLike(like).then((data) => {
+        that.assignLikeId(data.like.id);
       });
     }
   }
