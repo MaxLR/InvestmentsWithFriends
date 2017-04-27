@@ -39,6 +39,10 @@ class LikeItem extends React.Component {
     return likeId;
   }
 
+  assignLikeId(likeId) {
+    this.setState({ likeId: likeId});
+  }
+
   handleClick(e) {
     e.preventDefault();
     if (this.state.likeId) {
@@ -50,7 +54,10 @@ class LikeItem extends React.Component {
           likeable_type: this.props.likeableType,
         }
       };
-      this.props.createLike(like);
+      this.props.createLike(like).then(data => {
+        debugger
+        this.assignLikeId(data.like.id);
+      });
     }
   }
 
